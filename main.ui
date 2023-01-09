@@ -584,7 +584,7 @@ Button */
         <widget class="QFrame" name="leftMenuBg">
          <property name="minimumSize">
           <size>
-           <width>60</width>
+           <width>0</width>
            <height>0</height>
           </size>
          </property>
@@ -636,7 +636,7 @@ Button */
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <widget class="QFrame" name="topLogo">
+            <widget class="QWidget" name="topLogo" native="true">
              <property name="geometry">
               <rect>
                <x>10</x>
@@ -657,11 +657,11 @@ Button */
                <height>42</height>
               </size>
              </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
              </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
+             <property name="styleSheet">
+              <string notr="true">background-image: url(:/images/images/images/woodfish_icon.png);</string>
              </property>
             </widget>
             <widget class="QLabel" name="titleLeftApp">
@@ -806,7 +806,7 @@ Button */
                    <string notr="true">background-image: url(:/icons/images/icons/icon_menu.png);</string>
                   </property>
                   <property name="text">
-                   <string>Hide</string>
+                   <string>菜单</string>
                   </property>
                  </widget>
                 </item>
@@ -869,7 +869,54 @@ Button */
                    <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);</string>
                   </property>
                   <property name="text">
-                   <string>Home</string>
+                   <string>主页</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_tools">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-3d.png);</string>
+                  </property>
+                  <property name="text">
+                   <string>道具</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_rank">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-chart.png);</string>
+                  </property>
+                  <property name="text">
+                   <string>排行榜</string>
                   </property>
                  </widget>
                 </item>
@@ -906,114 +953,6 @@ Button */
                   </property>
                   <property name="text">
                    <string>Widgets</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="btn_new">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="layoutDirection">
-                   <enum>Qt::LeftToRight</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-file.png);</string>
-                  </property>
-                  <property name="text">
-                   <string>New</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="btn_save">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="layoutDirection">
-                   <enum>Qt::LeftToRight</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-save.png)</string>
-                  </property>
-                  <property name="text">
-                   <string>Save</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="btn_exit">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="layoutDirection">
-                   <enum>Qt::LeftToRight</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-x.png);</string>
-                  </property>
-                  <property name="text">
-                   <string>Exit</string>
                   </property>
                  </widget>
                 </item>
@@ -1073,7 +1012,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/icon_settings.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-paper-plane.png);</string>
                   </property>
                   <property name="text">
                    <string>Left Box</string>
@@ -1091,6 +1030,12 @@ Button */
        </item>
        <item>
         <widget class="QFrame" name="extraLeftBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1206,7 +1151,7 @@ Button */
                   </size>
                  </property>
                  <property name="text">
-                  <string>Left Box</string>
+                  <string>关于</string>
                  </property>
                 </widget>
                </item>
@@ -1252,6 +1197,12 @@ Button */
           </item>
           <item>
            <widget class="QFrame" name="extraContent">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
             </property>
@@ -1862,13 +1813,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>3</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
-                       <string notr="true">background-image: url(:/images/images/images/PyDracula_vertical.png);
+                       <string notr="true">background-image: url(:/images/images/images/woodfish_purple.png);
 background-position: center;
-background-repeat: no-repeat;</string>
+background-repeat: no-repeat;
+</string>
                       </property>
                      </widget>
                      <widget class="QWidget" name="widgets">
@@ -2751,7 +2703,7 @@ background-repeat: no-repeat;</string>
                  <widget class="QFrame" name="extraRightBox">
                   <property name="minimumSize">
                    <size>
-                    <width>0</width>
+                    <width>300</width>
                     <height>0</height>
                    </size>
                   </property>
@@ -2823,6 +2775,78 @@ background-repeat: no-repeat;</string>
                       <property name="bottomMargin">
                        <number>0</number>
                       </property>
+                      <item>
+                       <widget class="QPushButton" name="btn_message">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>45</height>
+                         </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI</family>
+                          <pointsize>10</pointsize>
+                          <italic>false</italic>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="cursor">
+                         <cursorShape>PointingHandCursor</cursorShape>
+                        </property>
+                        <property name="layoutDirection">
+                         <enum>Qt::LeftToRight</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">background-image: url(:/icons/images/icons/cil-loop-circular.png);</string>
+                        </property>
+                        <property name="text">
+                         <string>切换主题</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="btn_logout">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>45</height>
+                         </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI</family>
+                          <pointsize>10</pointsize>
+                          <italic>false</italic>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="cursor">
+                         <cursorShape>PointingHandCursor</cursorShape>
+                        </property>
+                        <property name="layoutDirection">
+                         <enum>Qt::LeftToRight</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">background-image: url(:/icons/images/icons/cil-account-logout.png);</string>
+                        </property>
+                        <property name="text">
+                         <string>登出</string>
+                        </property>
+                       </widget>
+                      </item>
                       <item alignment="Qt::AlignTop">
                        <widget class="QFrame" name="topMenus">
                         <property name="frameShape">
@@ -2847,114 +2871,6 @@ background-repeat: no-repeat;</string>
                          <property name="bottomMargin">
                           <number>0</number>
                          </property>
-                         <item>
-                          <widget class="QPushButton" name="btn_message">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>45</height>
-                            </size>
-                           </property>
-                           <property name="font">
-                            <font>
-                             <family>Segoe UI</family>
-                             <pointsize>10</pointsize>
-                             <italic>false</italic>
-                             <bold>false</bold>
-                            </font>
-                           </property>
-                           <property name="cursor">
-                            <cursorShape>PointingHandCursor</cursorShape>
-                           </property>
-                           <property name="layoutDirection">
-                            <enum>Qt::LeftToRight</enum>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/images/icons/cil-envelope-open.png);</string>
-                           </property>
-                           <property name="text">
-                            <string>Message</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QPushButton" name="btn_print">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>45</height>
-                            </size>
-                           </property>
-                           <property name="font">
-                            <font>
-                             <family>Segoe UI</family>
-                             <pointsize>10</pointsize>
-                             <italic>false</italic>
-                             <bold>false</bold>
-                            </font>
-                           </property>
-                           <property name="cursor">
-                            <cursorShape>PointingHandCursor</cursorShape>
-                           </property>
-                           <property name="layoutDirection">
-                            <enum>Qt::LeftToRight</enum>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/images/icons/cil-print.png);</string>
-                           </property>
-                           <property name="text">
-                            <string>Print</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QPushButton" name="btn_logout">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
-                           </property>
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>45</height>
-                            </size>
-                           </property>
-                           <property name="font">
-                            <font>
-                             <family>Segoe UI</family>
-                             <pointsize>10</pointsize>
-                             <italic>false</italic>
-                             <bold>false</bold>
-                            </font>
-                           </property>
-                           <property name="cursor">
-                            <cursorShape>PointingHandCursor</cursorShape>
-                           </property>
-                           <property name="layoutDirection">
-                            <enum>Qt::LeftToRight</enum>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">background-image: url(:/icons/images/icons/cil-account-logout.png);</string>
-                           </property>
-                           <property name="text">
-                            <string>Logout</string>
-                           </property>
-                          </widget>
-                         </item>
                         </layout>
                        </widget>
                       </item>
