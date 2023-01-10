@@ -12,11 +12,13 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from . resources_rc import *
+
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1301, 728)
+        MainWindow.resize(1370, 781)
         MainWindow.setMinimumSize(QSize(940, 560))
         self.styleSheet = QWidget(MainWindow)
         self.styleSheet.setObjectName(u"styleSheet")
@@ -709,7 +711,7 @@ class Ui_MainWindow(object):
         self.toggleLeftBox.setFont(font1)
         self.toggleLeftBox.setCursor(QCursor(Qt.PointingHandCursor))
         self.toggleLeftBox.setLayoutDirection(Qt.LeftToRight)
-        self.toggleLeftBox.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-paper-plane.png);\n"
+        self.toggleLeftBox.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user.png);\n"
 "font: 9pt \"Microsoft YaHei UI\";")
 
         self.verticalLayout_9.addWidget(self.toggleLeftBox)
@@ -762,12 +764,12 @@ class Ui_MainWindow(object):
 
         self.extraTopLayout.addWidget(self.extraIcon, 0, 0, 1, 1)
 
-        self.extraLabel = QLabel(self.extraTopBg)
-        self.extraLabel.setObjectName(u"extraLabel")
-        self.extraLabel.setMinimumSize(QSize(150, 0))
-        self.extraLabel.setStyleSheet(u"font: 9pt \"Microsoft YaHei UI\";")
+        self.extraLabel_login = QLabel(self.extraTopBg)
+        self.extraLabel_login.setObjectName(u"extraLabel_login")
+        self.extraLabel_login.setMinimumSize(QSize(150, 0))
+        self.extraLabel_login.setStyleSheet(u"font: 11pt \"Microsoft YaHei UI\";")
 
-        self.extraTopLayout.addWidget(self.extraLabel, 0, 1, 1, 1)
+        self.extraTopLayout.addWidget(self.extraLabel_login, 0, 1, 1, 1)
 
         self.extraCloseColumnBtn = QPushButton(self.extraTopBg)
         self.extraCloseColumnBtn.setObjectName(u"extraCloseColumnBtn")
@@ -798,58 +800,145 @@ class Ui_MainWindow(object):
         self.verticalLayout_12.setSpacing(0)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
-        self.extraTopMenu = QFrame(self.extraContent)
+        self.verticalSpacer = QSpacerItem(20, 15, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.verticalLayout_12.addItem(self.verticalSpacer)
+
+        self.extraTopMenu = QWidget(self.extraContent)
         self.extraTopMenu.setObjectName(u"extraTopMenu")
-        self.extraTopMenu.setFrameShape(QFrame.NoFrame)
-        self.extraTopMenu.setFrameShadow(QFrame.Raised)
         self.verticalLayout_11 = QVBoxLayout(self.extraTopMenu)
-        self.verticalLayout_11.setSpacing(0)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
-        self.verticalLayout_11.setContentsMargins(0, 0, 0, 0)
-        self.btn_share = QPushButton(self.extraTopMenu)
-        self.btn_share.setObjectName(u"btn_share")
-        sizePolicy.setHeightForWidth(self.btn_share.sizePolicy().hasHeightForWidth())
-        self.btn_share.setSizePolicy(sizePolicy)
-        self.btn_share.setMinimumSize(QSize(0, 45))
-        self.btn_share.setFont(font1)
-        self.btn_share.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_share.setLayoutDirection(Qt.LeftToRight)
-        self.btn_share.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-circle.png);font: 9pt \"Microsoft YaHei UI\";")
+        self.UserPwd = QWidget(self.extraTopMenu)
+        self.UserPwd.setObjectName(u"UserPwd")
+        self.UserPwdQW = QHBoxLayout(self.UserPwd)
+        self.UserPwdQW.setObjectName(u"UserPwdQW")
+        self.horizontalSpacer_7 = QSpacerItem(20, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
-        self.verticalLayout_11.addWidget(self.btn_share)
+        self.UserPwdQW.addItem(self.horizontalSpacer_7)
 
-        self.btn_more = QPushButton(self.extraTopMenu)
-        self.btn_more.setObjectName(u"btn_more")
-        sizePolicy.setHeightForWidth(self.btn_more.sizePolicy().hasHeightForWidth())
-        self.btn_more.setSizePolicy(sizePolicy)
-        self.btn_more.setMinimumSize(QSize(0, 45))
-        self.btn_more.setFont(font1)
-        self.btn_more.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_more.setLayoutDirection(Qt.LeftToRight)
-        self.btn_more.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-layers.png);font: 9pt \"Microsoft YaHei UI\";")
+        self.label_2 = QLabel(self.UserPwd)
+        self.label_2.setObjectName(u"label_2")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
+        self.label_2.setSizePolicy(sizePolicy2)
+        self.label_2.setMinimumSize(QSize(0, 0))
+        self.label_2.setStyleSheet(u"font: 9pt \"Microsoft YaHei UI\";")
+        self.label_2.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.verticalLayout_11.addWidget(self.btn_more)
+        self.UserPwdQW.addWidget(self.label_2)
 
+        self.et_username = QLineEdit(self.UserPwd)
+        self.et_username.setObjectName(u"et_username")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.et_username.sizePolicy().hasHeightForWidth())
+        self.et_username.setSizePolicy(sizePolicy3)
+        self.et_username.setMinimumSize(QSize(180, 0))
+        self.et_username.setMaximumSize(QSize(255, 16777215))
+        self.et_username.setStyleSheet(u"font: 9pt \"Microsoft YaHei UI\";")
+        self.et_username.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
-        self.verticalLayout_12.addWidget(self.extraTopMenu, 0, Qt.AlignTop)
+        self.UserPwdQW.addWidget(self.et_username, 0, Qt.AlignRight)
 
-        self.extraCenter = QFrame(self.extraContent)
-        self.extraCenter.setObjectName(u"extraCenter")
-        self.extraCenter.setFrameShape(QFrame.NoFrame)
-        self.extraCenter.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_10 = QVBoxLayout(self.extraCenter)
-        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.textEdit = QTextEdit(self.extraCenter)
-        self.textEdit.setObjectName(u"textEdit")
-        self.textEdit.setMinimumSize(QSize(222, 0))
-        self.textEdit.setStyleSheet(u"background: transparent;")
-        self.textEdit.setFrameShape(QFrame.NoFrame)
-        self.textEdit.setReadOnly(True)
+        self.horizontalSpacer_8 = QSpacerItem(10, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
-        self.verticalLayout_10.addWidget(self.textEdit)
+        self.UserPwdQW.addItem(self.horizontalSpacer_8)
 
 
-        self.verticalLayout_12.addWidget(self.extraCenter)
+        self.verticalLayout_11.addWidget(self.UserPwd)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 11, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.verticalLayout_11.addItem(self.verticalSpacer_2)
+
+        self.UserNameQW = QWidget(self.extraTopMenu)
+        self.UserNameQW.setObjectName(u"UserNameQW")
+        self.horizontalLayout_14 = QHBoxLayout(self.UserNameQW)
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.horizontalSpacer_6 = QSpacerItem(20, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_14.addItem(self.horizontalSpacer_6)
+
+        self.label = QLabel(self.UserNameQW)
+        self.label.setObjectName(u"label")
+        sizePolicy2.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy2)
+        self.label.setMinimumSize(QSize(0, 0))
+        self.label.setStyleSheet(u"font: 9pt \"Microsoft YaHei UI\";")
+        self.label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_14.addWidget(self.label)
+
+        self.et_password = QLineEdit(self.UserNameQW)
+        self.et_password.setObjectName(u"et_password")
+        sizePolicy3.setHeightForWidth(self.et_password.sizePolicy().hasHeightForWidth())
+        self.et_password.setSizePolicy(sizePolicy3)
+        self.et_password.setMinimumSize(QSize(180, 0))
+        self.et_password.setMaximumSize(QSize(220, 16777215))
+        self.et_password.setStyleSheet(u"font: 9pt \"Microsoft YaHei UI\";")
+        self.et_password.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.horizontalLayout_14.addWidget(self.et_password, 0, Qt.AlignRight)
+
+        self.horizontalSpacer_5 = QSpacerItem(10, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_14.addItem(self.horizontalSpacer_5)
+
+
+        self.verticalLayout_11.addWidget(self.UserNameQW)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.verticalLayout_11.addItem(self.verticalSpacer_3)
+
+        self.horizontalWidget = QWidget(self.extraTopMenu)
+        self.horizontalWidget.setObjectName(u"horizontalWidget")
+        self.horizontalLayout_18 = QHBoxLayout(self.horizontalWidget)
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.btn_login = QPushButton(self.horizontalWidget)
+        self.btn_login.setObjectName(u"btn_login")
+        sizePolicy3.setHeightForWidth(self.btn_login.sizePolicy().hasHeightForWidth())
+        self.btn_login.setSizePolicy(sizePolicy3)
+        self.btn_login.setMinimumSize(QSize(0, 0))
+        self.btn_login.setMaximumSize(QSize(166, 16777215))
+        self.btn_login.setLayoutDirection(Qt.LeftToRight)
+        self.btn_login.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+
+        self.horizontalLayout_18.addWidget(self.btn_login)
+
+
+        self.verticalLayout_11.addWidget(self.horizontalWidget)
+
+        self.verticalSpacer_5 = QSpacerItem(20, 5, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.verticalLayout_11.addItem(self.verticalSpacer_5)
+
+        self.horizontalWidget1 = QWidget(self.extraTopMenu)
+        self.horizontalWidget1.setObjectName(u"horizontalWidget1")
+        self.horizontalLayout_19 = QHBoxLayout(self.horizontalWidget1)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.btn_register = QPushButton(self.horizontalWidget1)
+        self.btn_register.setObjectName(u"btn_register")
+        sizePolicy3.setHeightForWidth(self.btn_register.sizePolicy().hasHeightForWidth())
+        self.btn_register.setSizePolicy(sizePolicy3)
+        self.btn_register.setMinimumSize(QSize(99, 0))
+        self.btn_register.setMaximumSize(QSize(166, 16777215))
+        self.btn_register.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+
+        self.horizontalLayout_19.addWidget(self.btn_register)
+
+
+        self.verticalLayout_11.addWidget(self.horizontalWidget1)
+
+
+        self.verticalLayout_12.addWidget(self.extraTopMenu)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_12.addItem(self.verticalSpacer_4)
 
         self.extraBottom = QFrame(self.extraContent)
         self.extraBottom.setObjectName(u"extraBottom")
@@ -884,11 +973,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(0, 0, 10, 0)
         self.leftBox = QFrame(self.contentTopBg)
         self.leftBox.setObjectName(u"leftBox")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.leftBox.sizePolicy().hasHeightForWidth())
-        self.leftBox.setSizePolicy(sizePolicy2)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.leftBox.sizePolicy().hasHeightForWidth())
+        self.leftBox.setSizePolicy(sizePolicy4)
         self.leftBox.setFrameShape(QFrame.NoFrame)
         self.leftBox.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.leftBox)
@@ -897,11 +986,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.titleRightInfo = QLabel(self.leftBox)
         self.titleRightInfo.setObjectName(u"titleRightInfo")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.titleRightInfo.sizePolicy().hasHeightForWidth())
-        self.titleRightInfo.setSizePolicy(sizePolicy3)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.titleRightInfo.sizePolicy().hasHeightForWidth())
+        self.titleRightInfo.setSizePolicy(sizePolicy5)
         self.titleRightInfo.setMaximumSize(QSize(16777215, 45))
         font2 = QFont()
         font2.setFamilies([u"Microsoft YaHei UI"])
@@ -1032,37 +1121,37 @@ class Ui_MainWindow(object):
 
         self.widget = QWidget(self.home_page)
         self.widget.setObjectName(u"widget")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(5)
-        sizePolicy4.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
-        self.widget.setSizePolicy(sizePolicy4)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(5)
+        sizePolicy6.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
+        self.widget.setSizePolicy(sizePolicy6)
         self.widget.setStyleSheet(u"background-image: url(:/images/images/images/woodfish_purple.png);\n"
 "background-position: center;\n"
 "background-repeat: no-repeat;")
 
         self.verticalLayout_22.addWidget(self.widget)
 
-        self.horizontalWidget = QWidget(self.home_page)
-        self.horizontalWidget.setObjectName(u"horizontalWidget")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(1)
-        sizePolicy5.setHeightForWidth(self.horizontalWidget.sizePolicy().hasHeightForWidth())
-        self.horizontalWidget.setSizePolicy(sizePolicy5)
-        self.horizontalLayout_6 = QHBoxLayout(self.horizontalWidget)
+        self.horizontalWidget2 = QWidget(self.home_page)
+        self.horizontalWidget2.setObjectName(u"horizontalWidget2")
+        sizePolicy7 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(1)
+        sizePolicy7.setHeightForWidth(self.horizontalWidget2.sizePolicy().hasHeightForWidth())
+        self.horizontalWidget2.setSizePolicy(sizePolicy7)
+        self.horizontalLayout_6 = QHBoxLayout(self.horizontalWidget2)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.horizontalSpacer = QSpacerItem(200, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
 
         self.horizontalLayout_6.addItem(self.horizontalSpacer)
 
-        self.btn_click = QPushButton(self.horizontalWidget)
+        self.btn_click = QPushButton(self.horizontalWidget2)
         self.btn_click.setObjectName(u"btn_click")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(29)
-        sizePolicy6.setHeightForWidth(self.btn_click.sizePolicy().hasHeightForWidth())
-        self.btn_click.setSizePolicy(sizePolicy6)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(29)
+        sizePolicy8.setHeightForWidth(self.btn_click.sizePolicy().hasHeightForWidth())
+        self.btn_click.setSizePolicy(sizePolicy8)
         self.btn_click.setMinimumSize(QSize(0, 32))
         self.btn_click.setMaximumSize(QSize(400, 16777215))
         self.btn_click.setStyleSheet(u"background-color: rgb(52, 59, 72);font-family:'Microsoft YaHei UI'; font-size:10pt")
@@ -1074,7 +1163,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.addItem(self.horizontalSpacer_2)
 
 
-        self.verticalLayout_22.addWidget(self.horizontalWidget)
+        self.verticalLayout_22.addWidget(self.horizontalWidget2)
 
         self.stackedWidget.addWidget(self.home_page)
         self.widgets = QWidget()
@@ -1240,7 +1329,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 274, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1351,11 +1440,11 @@ class Ui_MainWindow(object):
         __qtablewidgetitem23 = QTableWidgetItem()
         self.tableWidget.setItem(0, 3, __qtablewidgetitem23)
         self.tableWidget.setObjectName(u"tableWidget")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
-        self.tableWidget.setSizePolicy(sizePolicy7)
+        sizePolicy9 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
+        self.tableWidget.setSizePolicy(sizePolicy9)
         palette = QPalette()
         brush = QBrush(QColor(221, 221, 221, 255))
         brush.setStyle(Qt.SolidPattern)
@@ -1508,11 +1597,11 @@ class Ui_MainWindow(object):
         __qtablewidgetitem47 = QTableWidgetItem()
         self.top_table.setItem(1, 0, __qtablewidgetitem47)
         self.top_table.setObjectName(u"top_table")
-        sizePolicy8 = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.MinimumExpanding)
-        sizePolicy8.setHorizontalStretch(0)
-        sizePolicy8.setVerticalStretch(0)
-        sizePolicy8.setHeightForWidth(self.top_table.sizePolicy().hasHeightForWidth())
-        self.top_table.setSizePolicy(sizePolicy8)
+        sizePolicy10 = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.MinimumExpanding)
+        sizePolicy10.setHorizontalStretch(0)
+        sizePolicy10.setVerticalStretch(0)
+        sizePolicy10.setHeightForWidth(self.top_table.sizePolicy().hasHeightForWidth())
+        self.top_table.setSizePolicy(sizePolicy10)
         self.top_table.setMinimumSize(QSize(0, 0))
         self.top_table.setFont(font1)
         self.top_table.setLayoutDirection(Qt.LeftToRight)
@@ -1542,11 +1631,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
         self.label_score_2 = QLabel(self.verticalFrame)
         self.label_score_2.setObjectName(u"label_score_2")
-        sizePolicy9 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy9.setHorizontalStretch(0)
-        sizePolicy9.setVerticalStretch(0)
-        sizePolicy9.setHeightForWidth(self.label_score_2.sizePolicy().hasHeightForWidth())
-        self.label_score_2.setSizePolicy(sizePolicy9)
+        sizePolicy11 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy11.setHorizontalStretch(0)
+        sizePolicy11.setVerticalStretch(0)
+        sizePolicy11.setHeightForWidth(self.label_score_2.sizePolicy().hasHeightForWidth())
+        self.label_score_2.setSizePolicy(sizePolicy11)
         self.label_score_2.setMinimumSize(QSize(0, 28))
         self.label_score_2.setStyleSheet(u"font-family:'Microsoft YaHei UI'; font-size:9pt")
         self.label_score_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
@@ -1567,8 +1656,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
         self.item1_name_7 = QLabel(self.item_row_1)
         self.item1_name_7.setObjectName(u"item1_name_7")
-        sizePolicy9.setHeightForWidth(self.item1_name_7.sizePolicy().hasHeightForWidth())
-        self.item1_name_7.setSizePolicy(sizePolicy9)
+        sizePolicy11.setHeightForWidth(self.item1_name_7.sizePolicy().hasHeightForWidth())
+        self.item1_name_7.setSizePolicy(sizePolicy11)
         self.item1_name_7.setMinimumSize(QSize(0, 53))
         self.item1_name_7.setLayoutDirection(Qt.LeftToRight)
         self.item1_name_7.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-home.png);\n"
@@ -1581,11 +1670,11 @@ class Ui_MainWindow(object):
 
         self.item1_desc_7 = QLabel(self.item_row_1)
         self.item1_desc_7.setObjectName(u"item1_desc_7")
-        sizePolicy10 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
-        sizePolicy10.setHorizontalStretch(0)
-        sizePolicy10.setVerticalStretch(5)
-        sizePolicy10.setHeightForWidth(self.item1_desc_7.sizePolicy().hasHeightForWidth())
-        self.item1_desc_7.setSizePolicy(sizePolicy10)
+        sizePolicy12 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
+        sizePolicy12.setHorizontalStretch(0)
+        sizePolicy12.setVerticalStretch(5)
+        sizePolicy12.setHeightForWidth(self.item1_desc_7.sizePolicy().hasHeightForWidth())
+        self.item1_desc_7.setSizePolicy(sizePolicy12)
         self.item1_desc_7.setStyleSheet(u"font: 9pt \"Microsoft YaHei UI\";")
         self.item1_desc_7.setAlignment(Qt.AlignCenter)
 
@@ -1593,8 +1682,8 @@ class Ui_MainWindow(object):
 
         self.btn_item1_7 = QPushButton(self.item_row_1)
         self.btn_item1_7.setObjectName(u"btn_item1_7")
-        sizePolicy9.setHeightForWidth(self.btn_item1_7.sizePolicy().hasHeightForWidth())
-        self.btn_item1_7.setSizePolicy(sizePolicy9)
+        sizePolicy11.setHeightForWidth(self.btn_item1_7.sizePolicy().hasHeightForWidth())
+        self.btn_item1_7.setSizePolicy(sizePolicy11)
         self.btn_item1_7.setMinimumSize(QSize(133, 0))
         self.btn_item1_7.setMaximumSize(QSize(150, 16777215))
         self.btn_item1_7.setStyleSheet(u"background-color: rgb(52, 59, 72)")
@@ -1608,8 +1697,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_27.setObjectName(u"verticalLayout_27")
         self.item1_name_10 = QLabel(self.item_row_1)
         self.item1_name_10.setObjectName(u"item1_name_10")
-        sizePolicy9.setHeightForWidth(self.item1_name_10.sizePolicy().hasHeightForWidth())
-        self.item1_name_10.setSizePolicy(sizePolicy9)
+        sizePolicy11.setHeightForWidth(self.item1_name_10.sizePolicy().hasHeightForWidth())
+        self.item1_name_10.setSizePolicy(sizePolicy11)
         self.item1_name_10.setMinimumSize(QSize(0, 53))
         self.item1_name_10.setLayoutDirection(Qt.LeftToRight)
         self.item1_name_10.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-home.png);\n"
@@ -1622,8 +1711,8 @@ class Ui_MainWindow(object):
 
         self.item1_desc_10 = QLabel(self.item_row_1)
         self.item1_desc_10.setObjectName(u"item1_desc_10")
-        sizePolicy10.setHeightForWidth(self.item1_desc_10.sizePolicy().hasHeightForWidth())
-        self.item1_desc_10.setSizePolicy(sizePolicy10)
+        sizePolicy12.setHeightForWidth(self.item1_desc_10.sizePolicy().hasHeightForWidth())
+        self.item1_desc_10.setSizePolicy(sizePolicy12)
         self.item1_desc_10.setStyleSheet(u"font: 9pt \"Microsoft YaHei UI\";")
         self.item1_desc_10.setAlignment(Qt.AlignCenter)
 
@@ -1631,8 +1720,8 @@ class Ui_MainWindow(object):
 
         self.btn_item1_10 = QPushButton(self.item_row_1)
         self.btn_item1_10.setObjectName(u"btn_item1_10")
-        sizePolicy9.setHeightForWidth(self.btn_item1_10.sizePolicy().hasHeightForWidth())
-        self.btn_item1_10.setSizePolicy(sizePolicy9)
+        sizePolicy11.setHeightForWidth(self.btn_item1_10.sizePolicy().hasHeightForWidth())
+        self.btn_item1_10.setSizePolicy(sizePolicy11)
         self.btn_item1_10.setMinimumSize(QSize(133, 0))
         self.btn_item1_10.setMaximumSize(QSize(150, 16777215))
         self.btn_item1_10.setStyleSheet(u"background-color: rgb(52, 59, 72)")
@@ -1646,8 +1735,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_28.setObjectName(u"verticalLayout_28")
         self.item1_name_11 = QLabel(self.item_row_1)
         self.item1_name_11.setObjectName(u"item1_name_11")
-        sizePolicy9.setHeightForWidth(self.item1_name_11.sizePolicy().hasHeightForWidth())
-        self.item1_name_11.setSizePolicy(sizePolicy9)
+        sizePolicy11.setHeightForWidth(self.item1_name_11.sizePolicy().hasHeightForWidth())
+        self.item1_name_11.setSizePolicy(sizePolicy11)
         self.item1_name_11.setMinimumSize(QSize(0, 53))
         self.item1_name_11.setLayoutDirection(Qt.LeftToRight)
         self.item1_name_11.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-home.png);\n"
@@ -1660,8 +1749,8 @@ class Ui_MainWindow(object):
 
         self.item1_desc_11 = QLabel(self.item_row_1)
         self.item1_desc_11.setObjectName(u"item1_desc_11")
-        sizePolicy10.setHeightForWidth(self.item1_desc_11.sizePolicy().hasHeightForWidth())
-        self.item1_desc_11.setSizePolicy(sizePolicy10)
+        sizePolicy12.setHeightForWidth(self.item1_desc_11.sizePolicy().hasHeightForWidth())
+        self.item1_desc_11.setSizePolicy(sizePolicy12)
         self.item1_desc_11.setStyleSheet(u"font: 9pt \"Microsoft YaHei UI\";")
         self.item1_desc_11.setAlignment(Qt.AlignCenter)
 
@@ -1669,8 +1758,8 @@ class Ui_MainWindow(object):
 
         self.btn_item1_11 = QPushButton(self.item_row_1)
         self.btn_item1_11.setObjectName(u"btn_item1_11")
-        sizePolicy9.setHeightForWidth(self.btn_item1_11.sizePolicy().hasHeightForWidth())
-        self.btn_item1_11.setSizePolicy(sizePolicy9)
+        sizePolicy11.setHeightForWidth(self.btn_item1_11.sizePolicy().hasHeightForWidth())
+        self.btn_item1_11.setSizePolicy(sizePolicy11)
         self.btn_item1_11.setMinimumSize(QSize(133, 0))
         self.btn_item1_11.setMaximumSize(QSize(150, 16777215))
         self.btn_item1_11.setStyleSheet(u"background-color: rgb(52, 59, 72)")
@@ -1684,8 +1773,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_29.setObjectName(u"verticalLayout_29")
         self.item1_name_12 = QLabel(self.item_row_1)
         self.item1_name_12.setObjectName(u"item1_name_12")
-        sizePolicy9.setHeightForWidth(self.item1_name_12.sizePolicy().hasHeightForWidth())
-        self.item1_name_12.setSizePolicy(sizePolicy9)
+        sizePolicy11.setHeightForWidth(self.item1_name_12.sizePolicy().hasHeightForWidth())
+        self.item1_name_12.setSizePolicy(sizePolicy11)
         self.item1_name_12.setMinimumSize(QSize(0, 53))
         self.item1_name_12.setLayoutDirection(Qt.LeftToRight)
         self.item1_name_12.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-home.png);\n"
@@ -1698,8 +1787,8 @@ class Ui_MainWindow(object):
 
         self.item1_desc_12 = QLabel(self.item_row_1)
         self.item1_desc_12.setObjectName(u"item1_desc_12")
-        sizePolicy10.setHeightForWidth(self.item1_desc_12.sizePolicy().hasHeightForWidth())
-        self.item1_desc_12.setSizePolicy(sizePolicy10)
+        sizePolicy12.setHeightForWidth(self.item1_desc_12.sizePolicy().hasHeightForWidth())
+        self.item1_desc_12.setSizePolicy(sizePolicy12)
         self.item1_desc_12.setStyleSheet(u"font: 9pt \"Microsoft YaHei UI\";")
         self.item1_desc_12.setAlignment(Qt.AlignCenter)
 
@@ -1707,8 +1796,8 @@ class Ui_MainWindow(object):
 
         self.btn_item1_12 = QPushButton(self.item_row_1)
         self.btn_item1_12.setObjectName(u"btn_item1_12")
-        sizePolicy9.setHeightForWidth(self.btn_item1_12.sizePolicy().hasHeightForWidth())
-        self.btn_item1_12.setSizePolicy(sizePolicy9)
+        sizePolicy11.setHeightForWidth(self.btn_item1_12.sizePolicy().hasHeightForWidth())
+        self.btn_item1_12.setSizePolicy(sizePolicy11)
         self.btn_item1_12.setMinimumSize(QSize(133, 0))
         self.btn_item1_12.setMaximumSize(QSize(150, 16777215))
         self.btn_item1_12.setStyleSheet(u"background-color: rgb(52, 59, 72)")
@@ -1722,8 +1811,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
         self.item1_name_8 = QLabel(self.item_row_1)
         self.item1_name_8.setObjectName(u"item1_name_8")
-        sizePolicy9.setHeightForWidth(self.item1_name_8.sizePolicy().hasHeightForWidth())
-        self.item1_name_8.setSizePolicy(sizePolicy9)
+        sizePolicy11.setHeightForWidth(self.item1_name_8.sizePolicy().hasHeightForWidth())
+        self.item1_name_8.setSizePolicy(sizePolicy11)
         self.item1_name_8.setMinimumSize(QSize(0, 53))
         self.item1_name_8.setLayoutDirection(Qt.LeftToRight)
         self.item1_name_8.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-home.png);\n"
@@ -1736,8 +1825,8 @@ class Ui_MainWindow(object):
 
         self.item1_desc_8 = QLabel(self.item_row_1)
         self.item1_desc_8.setObjectName(u"item1_desc_8")
-        sizePolicy10.setHeightForWidth(self.item1_desc_8.sizePolicy().hasHeightForWidth())
-        self.item1_desc_8.setSizePolicy(sizePolicy10)
+        sizePolicy12.setHeightForWidth(self.item1_desc_8.sizePolicy().hasHeightForWidth())
+        self.item1_desc_8.setSizePolicy(sizePolicy12)
         self.item1_desc_8.setStyleSheet(u"font: 9pt \"Microsoft YaHei UI\";")
         self.item1_desc_8.setAlignment(Qt.AlignCenter)
 
@@ -1745,8 +1834,8 @@ class Ui_MainWindow(object):
 
         self.btn_item1_8 = QPushButton(self.item_row_1)
         self.btn_item1_8.setObjectName(u"btn_item1_8")
-        sizePolicy9.setHeightForWidth(self.btn_item1_8.sizePolicy().hasHeightForWidth())
-        self.btn_item1_8.setSizePolicy(sizePolicy9)
+        sizePolicy11.setHeightForWidth(self.btn_item1_8.sizePolicy().hasHeightForWidth())
+        self.btn_item1_8.setSizePolicy(sizePolicy11)
         self.btn_item1_8.setMinimumSize(QSize(133, 0))
         self.btn_item1_8.setMaximumSize(QSize(150, 16777215))
         self.btn_item1_8.setStyleSheet(u"background-color: rgb(52, 59, 72)")
@@ -1760,8 +1849,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_25.setObjectName(u"verticalLayout_25")
         self.item1_name_9 = QLabel(self.item_row_1)
         self.item1_name_9.setObjectName(u"item1_name_9")
-        sizePolicy9.setHeightForWidth(self.item1_name_9.sizePolicy().hasHeightForWidth())
-        self.item1_name_9.setSizePolicy(sizePolicy9)
+        sizePolicy11.setHeightForWidth(self.item1_name_9.sizePolicy().hasHeightForWidth())
+        self.item1_name_9.setSizePolicy(sizePolicy11)
         self.item1_name_9.setMinimumSize(QSize(0, 53))
         self.item1_name_9.setLayoutDirection(Qt.LeftToRight)
         self.item1_name_9.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-home.png);\n"
@@ -1774,8 +1863,8 @@ class Ui_MainWindow(object):
 
         self.item1_desc_9 = QLabel(self.item_row_1)
         self.item1_desc_9.setObjectName(u"item1_desc_9")
-        sizePolicy10.setHeightForWidth(self.item1_desc_9.sizePolicy().hasHeightForWidth())
-        self.item1_desc_9.setSizePolicy(sizePolicy10)
+        sizePolicy12.setHeightForWidth(self.item1_desc_9.sizePolicy().hasHeightForWidth())
+        self.item1_desc_9.setSizePolicy(sizePolicy12)
         self.item1_desc_9.setStyleSheet(u"font: 9pt \"Microsoft YaHei UI\";")
         self.item1_desc_9.setAlignment(Qt.AlignCenter)
 
@@ -1783,8 +1872,8 @@ class Ui_MainWindow(object):
 
         self.btn_item1_9 = QPushButton(self.item_row_1)
         self.btn_item1_9.setObjectName(u"btn_item1_9")
-        sizePolicy9.setHeightForWidth(self.btn_item1_9.sizePolicy().hasHeightForWidth())
-        self.btn_item1_9.setSizePolicy(sizePolicy9)
+        sizePolicy11.setHeightForWidth(self.btn_item1_9.sizePolicy().hasHeightForWidth())
+        self.btn_item1_9.setSizePolicy(sizePolicy11)
         self.btn_item1_9.setMinimumSize(QSize(133, 0))
         self.btn_item1_9.setMaximumSize(QSize(150, 16777215))
         self.btn_item1_9.setStyleSheet(u"background-color: rgb(52, 59, 72)")
@@ -1842,10 +1931,8 @@ class Ui_MainWindow(object):
         self.contentSettings.setObjectName(u"contentSettings")
         self.contentSettings.setFrameShape(QFrame.NoFrame)
         self.contentSettings.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_13 = QVBoxLayout(self.contentSettings)
-        self.verticalLayout_13.setSpacing(0)
-        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_10 = QVBoxLayout(self.contentSettings)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.btn_message = QPushButton(self.contentSettings)
         self.btn_message.setObjectName(u"btn_message")
         sizePolicy.setHeightForWidth(self.btn_message.sizePolicy().hasHeightForWidth())
@@ -1857,7 +1944,7 @@ class Ui_MainWindow(object):
         self.btn_message.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-moon.png);font: 9pt \"Microsoft YaHei UI\";\n"
 "")
 
-        self.verticalLayout_13.addWidget(self.btn_message)
+        self.verticalLayout_10.addWidget(self.btn_message)
 
         self.btn_logout = QPushButton(self.contentSettings)
         self.btn_logout.setObjectName(u"btn_logout")
@@ -1869,7 +1956,33 @@ class Ui_MainWindow(object):
         self.btn_logout.setLayoutDirection(Qt.LeftToRight)
         self.btn_logout.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-account-logout.png);font: 9pt \"Microsoft YaHei UI\";")
 
-        self.verticalLayout_13.addWidget(self.btn_logout)
+        self.verticalLayout_10.addWidget(self.btn_logout)
+
+        self.btn_message_3 = QPushButton(self.contentSettings)
+        self.btn_message_3.setObjectName(u"btn_message_3")
+        sizePolicy.setHeightForWidth(self.btn_message_3.sizePolicy().hasHeightForWidth())
+        self.btn_message_3.setSizePolicy(sizePolicy)
+        self.btn_message_3.setMinimumSize(QSize(0, 45))
+        self.btn_message_3.setFont(font1)
+        self.btn_message_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_message_3.setLayoutDirection(Qt.LeftToRight)
+        self.btn_message_3.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-star.png);font: 9pt \"Microsoft YaHei UI\";\n"
+"")
+
+        self.verticalLayout_10.addWidget(self.btn_message_3)
+
+        self.btn_message_2 = QPushButton(self.contentSettings)
+        self.btn_message_2.setObjectName(u"btn_message_2")
+        sizePolicy.setHeightForWidth(self.btn_message_2.sizePolicy().hasHeightForWidth())
+        self.btn_message_2.setSizePolicy(sizePolicy)
+        self.btn_message_2.setMinimumSize(QSize(0, 45))
+        self.btn_message_2.setFont(font1)
+        self.btn_message_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_message_2.setLayoutDirection(Qt.LeftToRight)
+        self.btn_message_2.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-circle.png);font: 9pt \"Microsoft YaHei UI\";\n"
+"")
+
+        self.verticalLayout_10.addWidget(self.btn_message_2)
 
         self.topMenus = QFrame(self.contentSettings)
         self.topMenus.setObjectName(u"topMenus")
@@ -1880,7 +1993,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
 
-        self.verticalLayout_13.addWidget(self.topMenus, 0, Qt.AlignTop)
+        self.verticalLayout_10.addWidget(self.topMenus)
 
 
         self.verticalLayout_7.addWidget(self.contentSettings)
@@ -1944,7 +2057,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1960,23 +2073,15 @@ class Ui_MainWindow(object):
         self.btn_rank.setText(QCoreApplication.translate("MainWindow", u"\u6392\u884c\u699c", None))
         self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"\u5173\u4e8e", None))
-        self.extraLabel.setText(QCoreApplication.translate("MainWindow", u"\u5173\u4e8e", None))
+        self.extraLabel_login.setText(QCoreApplication.translate("MainWindow", u"\u9700\u8981\u767b\u5f55/\u6ce8\u518c", None))
 #if QT_CONFIG(tooltip)
         self.extraCloseColumnBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close left box", None))
 #endif // QT_CONFIG(tooltip)
         self.extraCloseColumnBtn.setText("")
-        self.btn_share.setText(QCoreApplication.translate("MainWindow", u"Github", None))
-        self.btn_more.setText(QCoreApplication.translate("MainWindow", u"Blog", None))
-        self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Microsoft YaHei UI'; font-size:12pt; font-weight:600; color:#ff79c6;\">\u5173\u4e8e</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Microsoft YaHei UI'; font-size:9pt;\">\u5728\u505a\u4e86\u5728\u505a\u4e86</span></p></bo"
-                        "dy></html>", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u7528\u6237\u540d\uff1a", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u5bc6\u7801\uff1a", None))
+        self.btn_login.setText(QCoreApplication.translate("MainWindow", u"\u767b\u5f55", None))
+        self.btn_register.setText(QCoreApplication.translate("MainWindow", u"\u6ce8\u518c", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"\u7535\u5b50\u6728\u9c7c", None))
 #if QT_CONFIG(tooltip)
         self.settingsTopBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
@@ -2134,7 +2239,9 @@ class Ui_MainWindow(object):
         self.item1_desc_9.setText(QCoreApplication.translate("MainWindow", u"\u8fd9\u91cc\u662f\u9053\u51771\u7684\u5177\u4f53\u89e3\u91ca", None))
         self.btn_item1_9.setText(QCoreApplication.translate("MainWindow", u"\u4f7f\u7528", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"\u5207\u6362\u4e3b\u9898", None))
-        self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"\u767b\u51fa", None))
+        self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"\u767b\u51fa\u767b\u5f55", None))
+        self.btn_message_3.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u6e90\u5730\u5740", None))
+        self.btn_message_2.setText(QCoreApplication.translate("MainWindow", u"\u5173\u4e8e", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"\u8fd9\u662f\u72b6\u6001\u680f", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"v0.01", None))
     # retranslateUi
