@@ -675,14 +675,17 @@ Button */
              </property>
              <property name="font">
               <font>
-               <family>Segoe UI Semibold</family>
-               <pointsize>12</pointsize>
+               <family>Microsoft YaHei UI</family>
+               <pointsize>9</pointsize>
                <italic>false</italic>
                <bold>false</bold>
               </font>
              </property>
+             <property name="styleSheet">
+              <string notr="true">font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
+             </property>
              <property name="text">
-              <string>PyDracula</string>
+              <string>电子木鱼</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -705,14 +708,17 @@ Button */
              </property>
              <property name="font">
               <font>
-               <family>Segoe UI</family>
-               <pointsize>8</pointsize>
+               <family>Microsoft YaHei UI</family>
+               <pointsize>9</pointsize>
                <italic>false</italic>
                <bold>false</bold>
               </font>
              </property>
+             <property name="styleSheet">
+              <string notr="true">font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
+             </property>
              <property name="text">
-              <string>Modern GUI / Flat Style</string>
+              <string>在做了</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -722,6 +728,12 @@ Button */
           </item>
           <item>
            <widget class="QFrame" name="leftMenuFrame">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
             </property>
@@ -790,8 +802,8 @@ Button */
                   </property>
                   <property name="font">
                    <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
+                    <family>Microsoft YaHei UI</family>
+                    <pointsize>9</pointsize>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -803,7 +815,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/icon_menu.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/icon_menu.png);font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
                   </property>
                   <property name="text">
                    <string>菜单</string>
@@ -853,8 +865,8 @@ Button */
                   </property>
                   <property name="font">
                    <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
+                    <family>Microsoft YaHei UI</family>
+                    <pointsize>9</pointsize>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -866,7 +878,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
                   </property>
                   <property name="text">
                    <string>主页</string>
@@ -891,7 +903,7 @@ Button */
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-3d.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-3d.png);font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
                   </property>
                   <property name="text">
                    <string>道具</string>
@@ -913,7 +925,7 @@ Button */
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-chart.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-chart.png);font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
                   </property>
                   <property name="text">
                    <string>排行榜</string>
@@ -936,8 +948,8 @@ Button */
                   </property>
                   <property name="font">
                    <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
+                    <family>Microsoft YaHei UI</family>
+                    <pointsize>9</pointsize>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -949,7 +961,7 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-gamepad.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-gamepad.png);font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
                   </property>
                   <property name="text">
                    <string>Widgets</string>
@@ -999,8 +1011,8 @@ Button */
                   </property>
                   <property name="font">
                    <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
+                    <family>Microsoft YaHei UI</family>
+                    <pointsize>9</pointsize>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -1012,10 +1024,11 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-paper-plane.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-paper-plane.png);
+font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
                   </property>
                   <property name="text">
-                   <string>Left Box</string>
+                   <string>关于</string>
                   </property>
                  </widget>
                 </item>
@@ -1150,6 +1163,9 @@ Button */
                    <height>0</height>
                   </size>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
+                 </property>
                  <property name="text">
                   <string>关于</string>
                  </property>
@@ -1202,6 +1218,12 @@ Button */
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
@@ -1265,8 +1287,8 @@ Button */
                   </property>
                   <property name="font">
                    <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
+                    <family>Microsoft YaHei UI</family>
+                    <pointsize>9</pointsize>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -1278,46 +1300,10 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-share-boxed.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-circle.png);font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
                   </property>
                   <property name="text">
-                   <string>Share</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="btn_adjustments">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="layoutDirection">
-                   <enum>Qt::LeftToRight</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-equalizer.png);</string>
-                  </property>
-                  <property name="text">
-                   <string>Adjustments</string>
+                   <string>Github</string>
                   </property>
                  </widget>
                 </item>
@@ -1337,8 +1323,8 @@ Button */
                   </property>
                   <property name="font">
                    <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
+                    <family>Microsoft YaHei UI</family>
+                    <pointsize>9</pointsize>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -1350,10 +1336,10 @@ Button */
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-layers.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-layers.png);font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
                   </property>
                   <property name="text">
-                   <string>More</string>
+                   <string>Blog</string>
                   </property>
                  </widget>
                 </item>
@@ -1394,14 +1380,8 @@ hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;PyDracula&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;MIT License&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#bd93f9;&quot;&gt;Created by: Wanderson M. Pimenta&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;Convert UI&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt;pyside6-uic main.ui &amp;gt; ui_main.py&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;Convert QRC&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt;pyside6-rcc resources.qrc -o resources_rc.py&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Microsoft YaHei UI'; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;关于&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Microsoft YaHei UI'; font-size:9pt;&quot;&gt;在做了在做了&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                  </widget>
                 </item>
@@ -1530,14 +1510,17 @@ li.checked::marker { content: &quot;\2612&quot;; }
                   </property>
                   <property name="font">
                    <font>
-                    <family>Segoe UI</family>
+                    <family>Microsoft YaHei UI</family>
                     <pointsize>10</pointsize>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">font-family:'Microsoft YaHei UI'; font-size:10pt</string>
+                  </property>
                   <property name="text">
-                   <string>PyDracula APP - T.</string>
+                   <string>电子木鱼</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2118,7 +2101,7 @@ background-repeat: no-repeat;
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>218</width>
+                                 <width>319</width>
                                  <height>218</height>
                                 </rect>
                                </property>
@@ -2703,7 +2686,7 @@ background-repeat: no-repeat;
                  <widget class="QFrame" name="extraRightBox">
                   <property name="minimumSize">
                    <size>
-                    <width>300</width>
+                    <width>0</width>
                     <height>0</height>
                    </size>
                   </property>
@@ -2791,8 +2774,8 @@ background-repeat: no-repeat;
                         </property>
                         <property name="font">
                          <font>
-                          <family>Segoe UI</family>
-                          <pointsize>10</pointsize>
+                          <family>Microsoft YaHei UI</family>
+                          <pointsize>9</pointsize>
                           <italic>false</italic>
                           <bold>false</bold>
                          </font>
@@ -2804,7 +2787,8 @@ background-repeat: no-repeat;
                          <enum>Qt::LeftToRight</enum>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">background-image: url(:/icons/images/icons/cil-loop-circular.png);</string>
+                         <string notr="true">background-image: url(:/icons/images/icons/cil-moon.png);font: 9pt &quot;Microsoft YaHei UI&quot;;
+</string>
                         </property>
                         <property name="text">
                          <string>切换主题</string>
@@ -2827,8 +2811,8 @@ background-repeat: no-repeat;
                         </property>
                         <property name="font">
                          <font>
-                          <family>Segoe UI</family>
-                          <pointsize>10</pointsize>
+                          <family>Microsoft YaHei UI</family>
+                          <pointsize>9</pointsize>
                           <italic>false</italic>
                           <bold>false</bold>
                          </font>
@@ -2840,7 +2824,7 @@ background-repeat: no-repeat;
                          <enum>Qt::LeftToRight</enum>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">background-image: url(:/icons/images/icons/cil-account-logout.png);</string>
+                         <string notr="true">background-image: url(:/icons/images/icons/cil-account-logout.png);font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
                         </property>
                         <property name="text">
                          <string>登出</string>
@@ -2936,7 +2920,7 @@ background-repeat: no-repeat;
                    </font>
                   </property>
                   <property name="text">
-                   <string>By: Wanderson M. Pimenta</string>
+                   <string>这是状态栏</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2946,7 +2930,7 @@ background-repeat: no-repeat;
                 <item>
                  <widget class="QLabel" name="version">
                   <property name="text">
-                   <string>v1.0.3</string>
+                   <string>v0.01</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
