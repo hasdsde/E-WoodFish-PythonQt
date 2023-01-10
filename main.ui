@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1219</width>
-    <height>785</height>
+    <width>1301</width>
+    <height>728</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1819,7 +1819,7 @@ background-repeat: no-repeat;
                         </widget>
                        </item>
                        <item>
-                        <widget class="QFrame" name="frame">
+                        <widget class="QWidget" name="widget" native="true">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                            <horstretch>0</horstretch>
@@ -1830,12 +1830,6 @@ background-repeat: no-repeat;
                           <string notr="true">background-image: url(:/images/images/images/woodfish_purple.png);
 background-position: center;
 background-repeat: no-repeat;</string>
-                         </property>
-                         <property name="frameShape">
-                          <enum>QFrame::StyledPanel</enum>
-                         </property>
-                         <property name="frameShadow">
-                          <enum>QFrame::Raised</enum>
                          </property>
                         </widget>
                        </item>
@@ -1858,7 +1852,7 @@ background-repeat: no-repeat;</string>
                             </property>
                             <property name="sizeHint" stdset="0">
                              <size>
-                              <width>110</width>
+                              <width>200</width>
                               <height>20</height>
                              </size>
                             </property>
@@ -1876,6 +1870,12 @@ background-repeat: no-repeat;</string>
                              <size>
                               <width>0</width>
                               <height>32</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>400</width>
+                              <height>16777215</height>
                              </size>
                             </property>
                             <property name="styleSheet">
@@ -1896,7 +1896,7 @@ background-repeat: no-repeat;</string>
                             </property>
                             <property name="sizeHint" stdset="0">
                              <size>
-                              <width>40</width>
+                              <width>200</width>
                               <height>20</height>
                              </size>
                             </property>
@@ -2263,7 +2263,7 @@ background-repeat: no-repeat;</string>
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>322</width>
+                                 <width>218</width>
                                  <height>218</height>
                                 </rect>
                                </property>
@@ -2748,23 +2748,23 @@ background-repeat: no-repeat;</string>
                       </layout>
                      </widget>
                      <widget class="QWidget" name="top_page">
-                      <layout class="QVBoxLayout" name="verticalLayout_31">
+                      <layout class="QVBoxLayout" name="verticalLayout_30">
                        <item>
                         <widget class="QLabel" name="label_3">
+                         <property name="styleSheet">
+                          <string notr="true">font: 10pt &quot;Microsoft YaHei UI&quot;;</string>
+                         </property>
                          <property name="text">
                           <string>你的分数：你的排名：</string>
                          </property>
                         </widget>
                        </item>
                        <item>
-                        <layout class="QHBoxLayout" name="horizontalLayout_13">
+                        <layout class="QHBoxLayout" name="horizontalLayout_10">
                          <item>
                           <spacer name="horizontalSpacer_3">
                            <property name="orientation">
                             <enum>Qt::Horizontal</enum>
-                           </property>
-                           <property name="sizeType">
-                            <enum>QSizePolicy::Preferred</enum>
                            </property>
                            <property name="sizeHint" stdset="0">
                             <size>
@@ -2777,21 +2777,21 @@ background-repeat: no-repeat;</string>
                          <item>
                           <widget class="QTableWidget" name="top_table">
                            <property name="sizePolicy">
-                            <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                            <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                              <horstretch>0</horstretch>
                              <verstretch>0</verstretch>
                             </sizepolicy>
                            </property>
                            <property name="minimumSize">
                             <size>
-                             <width>138</width>
+                             <width>0</width>
                              <height>0</height>
                             </size>
                            </property>
                            <property name="font">
                             <font>
-                             <family>Segoe UI</family>
-                             <pointsize>10</pointsize>
+                             <family>Microsoft YaHei UI</family>
+                             <pointsize>9</pointsize>
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
@@ -2799,8 +2799,11 @@ background-repeat: no-repeat;</string>
                            <property name="layoutDirection">
                             <enum>Qt::LeftToRight</enum>
                            </property>
+                           <property name="autoFillBackground">
+                            <bool>true</bool>
+                           </property>
                            <property name="styleSheet">
-                            <string notr="true"/>
+                            <string notr="true">font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
                            </property>
                            <property name="tabKeyNavigation">
                             <bool>true</bool>
@@ -2989,9 +2992,6 @@ background-repeat: no-repeat;</string>
                            <property name="orientation">
                             <enum>Qt::Horizontal</enum>
                            </property>
-                           <property name="sizeType">
-                            <enum>QSizePolicy::Preferred</enum>
-                           </property>
                            <property name="sizeHint" stdset="0">
                             <size>
                              <width>40</width>
@@ -3037,105 +3037,507 @@ background-repeat: no-repeat;</string>
                           <item>
                            <layout class="QVBoxLayout" name="verticalLayout_24">
                             <item>
-                             <widget class="QFrame" name="item_row_1">
-                              <layout class="QHBoxLayout" name="horizontalLayout_7">
+                             <widget class="QFrame" name="item_row_2">
+                              <layout class="QHBoxLayout" name="horizontalLayout_8">
                                <item>
-                                <layout class="QVBoxLayout" name="verticalLayout_25">
-                                 <item>
-                                  <widget class="QLabel" name="item1_name">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                   <property name="minimumSize">
-                                    <size>
-                                     <width>0</width>
-                                     <height>53</height>
-                                    </size>
-                                   </property>
-                                   <property name="layoutDirection">
-                                    <enum>Qt::LeftToRight</enum>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);
+                                <widget class="QFrame" name="item_row_1">
+                                 <layout class="QHBoxLayout" name="horizontalLayout_7">
+                                  <item>
+                                   <layout class="QVBoxLayout" name="verticalLayout_26">
+                                    <item>
+                                     <widget class="QLabel" name="item1_name_7">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>0</width>
+                                        <height>53</height>
+                                       </size>
+                                      </property>
+                                      <property name="layoutDirection">
+                                       <enum>Qt::LeftToRight</enum>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);
 background-repeat: no-repeat;
 color:rgb(223,121,198);
 font: 15pt &quot;Microsoft YaHei UI&quot;;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>道具1</string>
-                                   </property>
-                                   <property name="alignment">
-                                    <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item>
-                                  <widget class="QLabel" name="item1_desc">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>5</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                   <property name="text">
-                                    <string>这里是道具1的具体解释</string>
-                                   </property>
-                                   <property name="alignment">
-                                    <set>Qt::AlignCenter</set>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item alignment="Qt::AlignHCenter">
-                                  <widget class="QPushButton" name="btn_item1">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                   <property name="minimumSize">
-                                    <size>
-                                     <width>133</width>
-                                     <height>0</height>
-                                    </size>
-                                   </property>
-                                   <property name="maximumSize">
-                                    <size>
-                                     <width>150</width>
-                                     <height>16777215</height>
-                                    </size>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">background-color: rgb(52, 59, 72);</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>使用</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </item>
-                               <item>
-                                <layout class="QVBoxLayout" name="verticalLayout_26"/>
-                               </item>
-                               <item>
-                                <layout class="QVBoxLayout" name="verticalLayout_27"/>
-                               </item>
-                               <item>
-                                <layout class="QVBoxLayout" name="verticalLayout_28"/>
-                               </item>
-                               <item>
-                                <layout class="QVBoxLayout" name="verticalLayout_29"/>
+                                      </property>
+                                      <property name="text">
+                                       <string>道具1</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QLabel" name="item1_desc_7">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>5</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>这里是道具1的具体解释</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QPushButton" name="btn_item1_7">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>133</width>
+                                        <height>0</height>
+                                       </size>
+                                      </property>
+                                      <property name="maximumSize">
+                                       <size>
+                                        <width>150</width>
+                                        <height>16777215</height>
+                                       </size>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">background-color: rgb(52, 59, 72)</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>使用</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </item>
+                                  <item>
+                                   <layout class="QVBoxLayout" name="verticalLayout_27">
+                                    <item>
+                                     <widget class="QLabel" name="item1_name_10">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>0</width>
+                                        <height>53</height>
+                                       </size>
+                                      </property>
+                                      <property name="layoutDirection">
+                                       <enum>Qt::LeftToRight</enum>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);
+background-repeat: no-repeat;
+color:rgb(223,121,198);
+font: 15pt &quot;Microsoft YaHei UI&quot;;</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>道具1</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QLabel" name="item1_desc_10">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>5</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>这里是道具1的具体解释</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QPushButton" name="btn_item1_10">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>133</width>
+                                        <height>0</height>
+                                       </size>
+                                      </property>
+                                      <property name="maximumSize">
+                                       <size>
+                                        <width>150</width>
+                                        <height>16777215</height>
+                                       </size>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">background-color: rgb(52, 59, 72)</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>使用</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </item>
+                                  <item>
+                                   <layout class="QVBoxLayout" name="verticalLayout_28">
+                                    <item>
+                                     <widget class="QLabel" name="item1_name_11">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>0</width>
+                                        <height>53</height>
+                                       </size>
+                                      </property>
+                                      <property name="layoutDirection">
+                                       <enum>Qt::LeftToRight</enum>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);
+background-repeat: no-repeat;
+color:rgb(223,121,198);
+font: 15pt &quot;Microsoft YaHei UI&quot;;</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>道具1</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QLabel" name="item1_desc_11">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>5</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>这里是道具1的具体解释</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QPushButton" name="btn_item1_11">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>133</width>
+                                        <height>0</height>
+                                       </size>
+                                      </property>
+                                      <property name="maximumSize">
+                                       <size>
+                                        <width>150</width>
+                                        <height>16777215</height>
+                                       </size>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">background-color: rgb(52, 59, 72)</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>使用</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </item>
+                                  <item>
+                                   <layout class="QVBoxLayout" name="verticalLayout_29">
+                                    <item>
+                                     <widget class="QLabel" name="item1_name_12">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>0</width>
+                                        <height>53</height>
+                                       </size>
+                                      </property>
+                                      <property name="layoutDirection">
+                                       <enum>Qt::LeftToRight</enum>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);
+background-repeat: no-repeat;
+color:rgb(223,121,198);
+font: 15pt &quot;Microsoft YaHei UI&quot;;</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>道具1</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QLabel" name="item1_desc_12">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>5</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>这里是道具1的具体解释</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QPushButton" name="btn_item1_12">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>133</width>
+                                        <height>0</height>
+                                       </size>
+                                      </property>
+                                      <property name="maximumSize">
+                                       <size>
+                                        <width>150</width>
+                                        <height>16777215</height>
+                                       </size>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">background-color: rgb(52, 59, 72)</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>使用</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </item>
+                                  <item>
+                                   <layout class="QVBoxLayout" name="verticalLayout_20">
+                                    <item>
+                                     <widget class="QLabel" name="item1_name_8">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>0</width>
+                                        <height>53</height>
+                                       </size>
+                                      </property>
+                                      <property name="layoutDirection">
+                                       <enum>Qt::LeftToRight</enum>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);
+background-repeat: no-repeat;
+color:rgb(223,121,198);
+font: 15pt &quot;Microsoft YaHei UI&quot;;</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>道具1</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QLabel" name="item1_desc_8">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>5</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>这里是道具1的具体解释</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QPushButton" name="btn_item1_8">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>133</width>
+                                        <height>0</height>
+                                       </size>
+                                      </property>
+                                      <property name="maximumSize">
+                                       <size>
+                                        <width>150</width>
+                                        <height>16777215</height>
+                                       </size>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">background-color: rgb(52, 59, 72)</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>使用</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </item>
+                                  <item>
+                                   <layout class="QVBoxLayout" name="verticalLayout_25">
+                                    <item>
+                                     <widget class="QLabel" name="item1_name_9">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>0</width>
+                                        <height>53</height>
+                                       </size>
+                                      </property>
+                                      <property name="layoutDirection">
+                                       <enum>Qt::LeftToRight</enum>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">background-image: url(:/icons/images/icons/cil-home.png);
+background-repeat: no-repeat;
+color:rgb(223,121,198);
+font: 15pt &quot;Microsoft YaHei UI&quot;;</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>道具1</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QLabel" name="item1_desc_9">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>5</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>这里是道具1的具体解释</string>
+                                      </property>
+                                      <property name="alignment">
+                                       <set>Qt::AlignCenter</set>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QPushButton" name="btn_item1_9">
+                                      <property name="sizePolicy">
+                                       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                       </sizepolicy>
+                                      </property>
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>133</width>
+                                        <height>0</height>
+                                       </size>
+                                      </property>
+                                      <property name="maximumSize">
+                                       <size>
+                                        <width>150</width>
+                                        <height>16777215</height>
+                                       </size>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">background-color: rgb(52, 59, 72)</string>
+                                      </property>
+                                      <property name="text">
+                                       <string>使用</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </item>
+                                 </layout>
+                                </widget>
                                </item>
                               </layout>
-                             </widget>
-                            </item>
-                            <item>
-                             <widget class="QFrame" name="item_row_2">
-                              <layout class="QHBoxLayout" name="horizontalLayout_8"/>
                              </widget>
                             </item>
                             <item>

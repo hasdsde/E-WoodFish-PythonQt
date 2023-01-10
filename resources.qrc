@@ -2,7 +2,6 @@
   <qresource prefix="images">
     <file>images/images/PyDracula.png</file>
     <file>images/images/PyDracula_vertical.png</file>
-    <file>images/images/woodfish.png</file>
     <file>images/images/woodfish_purple.png</file>
     <file>images/images/woodfish_icon.png</file>
   </qresource>
