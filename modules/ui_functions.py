@@ -151,7 +151,7 @@ class UIFunctions(MainWindow):
 
         # Check values
         if left_box_width == 0 and direction == "left":
-            left_width = 240
+            left_width = 300
         else:
             left_width = 0
         # Check values

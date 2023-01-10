@@ -3,7 +3,7 @@ class Settings():
     # ///////////////////////////////////////////////////////////////
     ENABLE_CUSTOM_TITLE_BAR = True
     MENU_WIDTH = 240
-    LEFT_BOX_WIDTH = 240
+    LEFT_BOX_WIDTH = 300
     RIGHT_BOX_WIDTH = 240
     TIME_ANIMATION = 500
 
