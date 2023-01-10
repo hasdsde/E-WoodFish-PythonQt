@@ -65,23 +65,23 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
-        # BUTTONS CLICK
+        # 点击按钮
         # ///////////////////////////////////////////////////////////////
 
-        # LEFT MENUS
+        # 左侧菜单
         widgets.btn_home.clicked.connect(self.buttonClick)
+        widgets.btn_tools.clicked.connect(self.buttonClick)
+        widgets.btn_rank.clicked.connect(self.buttonClick)
         widgets.btn_widgets.clicked.connect(self.buttonClick)
-        widgets.btn_new.clicked.connect(self.buttonClick)
-        widgets.btn_save.clicked.connect(self.buttonClick)
 
-        # EXTRA LEFT BOX
+        # 设置
         def openCloseLeftBox():
             UIFunctions.toggleLeftBox(self, True)
 
         widgets.toggleLeftBox.clicked.connect(openCloseLeftBox)
         widgets.extraCloseColumnBtn.clicked.connect(openCloseLeftBox)
 
-        # EXTRA RIGHT BOX
+        # 关于
         def openCloseRightBox():
             UIFunctions.toggleRightBox(self, True)
 
@@ -117,26 +117,27 @@ class MainWindow(QMainWindow):
         btn = self.sender()
         btnName = btn.objectName()
 
-        # SHOW HOME PAGE
+        # 首页
         if btnName == "btn_home":
-            widgets.stackedWidget.setCurrentWidget(widgets.home)
+            widgets.stackedWidget.setCurrentWidget(widgets.home_page)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
-
-        # SHOW WIDGETS PAGE
+        #物品页
+        if btnName == "btn_tools":
+            widgets.stackedWidget.setCurrentWidget(widgets.item_page)  
+            UIFunctions.resetStyle(self, btnName)  
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))        
+        #排行
+        if btnName == "btn_rank":
+            widgets.stackedWidget.setCurrentWidget(widgets.top_page)  
+            UIFunctions.resetStyle(self, btnName)  
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+        # 组件页
         if btnName == "btn_widgets":
             widgets.stackedWidget.setCurrentWidget(widgets.widgets)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        # SHOW NEW PAGE
-        if btnName == "btn_new":
-            widgets.stackedWidget.setCurrentWidget(widgets.my_new_page)  # SET PAGE
-            UIFunctions.resetStyle(self, btnName)  # RESET ANOTHERS BUTTONS SELECTED
-            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))  # SELECT MENU
-
-        if btnName == "btn_save":
-            print("Save BTN clicked!")
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')

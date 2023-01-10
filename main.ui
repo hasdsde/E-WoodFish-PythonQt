@@ -1796,7 +1796,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>3</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -2775,7 +2775,7 @@ background-repeat: no-repeat;</string>
                           </spacer>
                          </item>
                          <item>
-                          <widget class="QTableWidget" name="tableWidget_2">
+                          <widget class="QTableWidget" name="top_table">
                            <property name="sizePolicy">
                             <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
                              <horstretch>0</horstretch>
@@ -3042,7 +3042,7 @@ background-repeat: no-repeat;</string>
                                <item>
                                 <layout class="QVBoxLayout" name="verticalLayout_25">
                                  <item>
-                                  <widget class="QLabel" name="label">
+                                  <widget class="QLabel" name="item1_name">
                                    <property name="sizePolicy">
                                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                                      <horstretch>0</horstretch>
@@ -3073,7 +3073,7 @@ font: 15pt &quot;Microsoft YaHei UI&quot;;</string>
                                   </widget>
                                  </item>
                                  <item>
-                                  <widget class="QLabel" name="label_2">
+                                  <widget class="QLabel" name="item1_desc">
                                    <property name="sizePolicy">
                                     <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                                      <horstretch>0</horstretch>
@@ -3089,7 +3089,7 @@ font: 15pt &quot;Microsoft YaHei UI&quot;;</string>
                                   </widget>
                                  </item>
                                  <item alignment="Qt::AlignHCenter">
-                                  <widget class="QPushButton" name="pushButton_2">
+                                  <widget class="QPushButton" name="btn_item1">
                                    <property name="sizePolicy">
                                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                                      <horstretch>0</horstretch>
