@@ -63,7 +63,7 @@ class MainWindow(QMainWindow):
 
         # 表格参数
         # ///////////////////////////////////////////////////////////////
-        widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        # widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         # 点击按钮
         # ///////////////////////////////////////////////////////////////
@@ -72,7 +72,6 @@ class MainWindow(QMainWindow):
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_tools.clicked.connect(self.buttonClick)
         widgets.btn_rank.clicked.connect(self.buttonClick)
-        widgets.btn_widgets.clicked.connect(self.buttonClick)
 
         #侧栏
         def openCloseLeftBox():
