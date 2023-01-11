@@ -181,7 +181,12 @@ class MainWindow(QMainWindow):
         userName = widgets.et_username.text()
         password = widgets.et_password.text()
         params = {'username':userName,'password':password}
-        resp =  requests.post("http://localhost:8000/user/reg",params=params)
+        resp =  requests.post("http://localhost:8000/user/log",json=params)
+        if resp['code']==200:
+            QMessageBox.information(self, '登录', '登录成功', QMessageBox.Yes, QMessageBox.Yes)
+            self.username = userName
+        else:
+            QMessageBox.warning(self,'警告',f"错误代码:{resp['code']} 信息：{resp['msg']}",QMessageBox.Yes,QMessageBox.Yes)
         print(resp.text)
     def UserRegister(self):
         print('用户点击登录')
@@ -192,7 +197,7 @@ class MainWindow(QMainWindow):
         resp = sp.json()
         print(resp)
         if resp['code']==200:
-            QMessageBox.information(self, '注册', '注册成功', QMessageBox.Yes, QMessageBox.Yes) 
+            QMessageBox.information(self, '注册', '注册成功', QMessageBox.Yes, QMessageBox.Yes)
         else:
             QMessageBox.warning(self,'警告',f"错误代码:{resp['code']} 信息：{resp['msg']}",QMessageBox.Yes,QMessageBox.Yes)
 
