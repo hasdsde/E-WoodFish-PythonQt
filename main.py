@@ -18,7 +18,7 @@ import json
 import sys
 import os
 import platform
-
+import requests
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from modules import *
@@ -73,6 +73,8 @@ class MainWindow(QMainWindow):
         widgets.btn_rank.clicked.connect(self.buttonClick)
         #功能按钮
         widgets.btn_click.clicked.connect(self.HomeBtnClick)
+        widgets.btn_login.clicked.connect(self.UserLogin)
+        widgets.btn_register.clicked.connect(self.UserRegister)
 
         # ///////////////////////////////////////////////////////////////
         #侧栏
@@ -124,12 +126,12 @@ class MainWindow(QMainWindow):
             self.userName = userData['userName']
             self.score = userData['score']
             userDataFile.close()
-        widgets.label_score.setText(f'你的功德值：{self.score}')
+        widgets.label_score.setText(f'功德值：{self.score}')
 
         widgets.ed_scoreplus.setText('')
 
 
-    # 点击事件
+    #左侧菜单栏
     def buttonClick(self):
         # GET BUTTON CLICKED
         btn = self.sender()
@@ -160,15 +162,11 @@ class MainWindow(QMainWindow):
         print(f'Button "{btnName}" pressed!')
     # ///////////////////////////////////////////////////////////////
 
-    #点击
+    #点击木鱼
     def HomeBtnClick(self):
         print("你敲了一下木鱼")
         self.score = self.score+1
-        widgets.label_score.setText(f'你的功德值：{self.score}')
-        # posAnime = QPropertyAnimation(widgets.ed_scoreplus,'pos')
-        # posAnime.setDuration(1000)
-        # posAnime.setStartValue(QPoint(360,160))
-        # posAnime.setEndValue(QPoint(360,360))
+        widgets.label_score.setText(f'功德值：{self.score}')
         widgets.ed_scoreplus.setText('功德+1')
         self.ClickAnime = QPropertyAnimation(widgets.ed_scoreplus, b'geometry')
         self.ClickAnime.setDuration(300)
@@ -176,7 +174,27 @@ class MainWindow(QMainWindow):
         self.ClickAnime.setEndValue(QRect(750,100,500,0))
         self.ClickAnime.setLoopCount(1)
         self.ClickAnime.start()
-        
+    
+    #用户注册
+    def UserLogin(self):
+        print('用户点击登录')
+        userName = widgets.et_username.text()
+        password = widgets.et_password.text()
+        params = {'username':userName,'password':password}
+        resp =  requests.post("http://localhost:8000/user/reg",params=params)
+        print(resp.text)
+    def UserRegister(self):
+        print('用户点击登录')
+        userName = widgets.et_username.text()
+        password = widgets.et_password.text()
+        params ={'username':userName,'password':password}
+        sp =  requests.post("http://localhost:8000/user/reg",json=params)
+        resp = sp.json()
+        print(resp)
+        if resp['code']==200:
+            QMessageBox.information(self, '注册', '注册成功', QMessageBox.Yes, QMessageBox.Yes) 
+        else:
+            QMessageBox.warning(self,'警告',f"错误代码:{resp['code']} 信息：{resp['msg']}",QMessageBox.Yes,QMessageBox.Yes)
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
@@ -184,17 +202,17 @@ class MainWindow(QMainWindow):
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
-    # MOUSE CLICK EVENTS 鼠标点击事件
+    # MOUSE CLICK EVENTS 鼠标点击事件 下面的函数不能去掉
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
 
-        # PRINT MOUSE EVENTS
-        if event.buttons() == Qt.LeftButton:
-            print('Mouse click: LEFT CLICK')
-        if event.buttons() == Qt.RightButton:
-            print('Mouse click: RIGHT CLICK')
+    #     # PRINT MOUSE EVENTS
+    #     if event.buttons() == Qt.LeftButton:
+    #         print('Mouse click: LEFT CLICK')
+    #     if event.buttons() == Qt.RightButton:
+    #         print('Mouse click: RIGHT CLICK')
     #重写退出事件
     def closeEvent(self, event):
         dict = {'userName':self.userName,'score':self.score}
