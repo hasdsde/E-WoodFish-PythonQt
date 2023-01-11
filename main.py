@@ -126,6 +126,7 @@ class MainWindow(QMainWindow):
             userDataFile.close()
         widgets.label_score.setText(f'你的功德值：{self.score}')
 
+        widgets.ed_scoreplus.setText('')
 
 
     # 点击事件
@@ -170,7 +171,7 @@ class MainWindow(QMainWindow):
         # posAnime.setEndValue(QPoint(360,360))
         widgets.ed_scoreplus.setText('功德+1')
         self.ClickAnime = QPropertyAnimation(widgets.ed_scoreplus, b'geometry')
-        self.ClickAnime.setDuration(500)
+        self.ClickAnime.setDuration(300)
         self.ClickAnime.setStartValue(QRect(750,100,500,200))
         self.ClickAnime.setEndValue(QRect(750,100,500,0))
         self.ClickAnime.setLoopCount(1)
