@@ -14,6 +14,7 @@
 #
 # ///////////////////////////////////////////////////////////////
 
+import json
 import sys
 import os
 import platform
@@ -38,6 +39,7 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.score = 0
         global widgets
         widgets = self.ui
 
@@ -54,25 +56,25 @@ class MainWindow(QMainWindow):
         widgets.titleRightInfo.setText(description)
 
         # TOGGLE MENU 侧栏是否可用
-        # ///////////////////////////////////////////////////////////////
         widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
 
         # UI基础功能
-        # ///////////////////////////////////////////////////////////////
         UIFunctions.uiDefinitions(self)
 
         # 表格参数
-        # ///////////////////////////////////////////////////////////////
         # widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         # 点击按钮
         # ///////////////////////////////////////////////////////////////
 
-        # 绑定点击事件
+        #点击页面
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_tools.clicked.connect(self.buttonClick)
         widgets.btn_rank.clicked.connect(self.buttonClick)
+        #功能按钮
+        widgets.btn_click.clicked.connect(self.HomeBtnClick)
 
+        # ///////////////////////////////////////////////////////////////
         #侧栏
         def openCloseLeftBox():
             UIFunctions.toggleLeftBox(self, True)
@@ -108,9 +110,26 @@ class MainWindow(QMainWindow):
         widgets.stackedWidget.setCurrentWidget(widgets.home_page)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
+
+
+        #初始化数据
+        #本地模式
+        if not os.path.exists('data.json'):
+            localData = {'userName':'本地用户','score':0}
+            with open('data.json', mode='w', encoding='utf-8') as f:
+                json.dump(localData,f)
+            print("文件已创建")
+            f.close()
+        with open('data.json','r+') as userDataFile:
+            userData = json.load(fp=userDataFile)
+            self.userName = userData['userName']
+            self.score = userData['score']
+            userDataFile.close()
+        widgets.label_score.setText(f'你的功德值：{self.score}')
+
+
+
     # 点击事件
-    # Post here your functions for clicked buttons
-    # ///////////////////////////////////////////////////////////////
     def buttonClick(self):
         # GET BUTTON CLICKED
         btn = self.sender()
@@ -137,10 +156,14 @@ class MainWindow(QMainWindow):
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
+    # ///////////////////////////////////////////////////////////////
 
+    def HomeBtnClick(self):
+        print("你敲了一下木鱼")
+        self.score = self.score+1
+        widgets.label_score.setText(f'你的功德值：{self.score}')
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
@@ -158,6 +181,12 @@ class MainWindow(QMainWindow):
             print('Mouse click: LEFT CLICK')
         if event.buttons() == Qt.RightButton:
             print('Mouse click: RIGHT CLICK')
+    #重写退出事件
+    def closeEvent(self, event):
+        dict = {'userName':self.userName,'score':self.score}
+        with open('data.json', mode='w', encoding='utf-8') as dictF:
+            json.dump(dict,dictF)
+        print('退出软件，数据已保存')
 
 
 if __name__ == "__main__":
