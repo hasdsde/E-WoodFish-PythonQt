@@ -109,8 +109,7 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home_page)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
-
-
+        widgets.ed_scoreplus.setText('')
 
         #初始化数据
         #本地模式
@@ -160,10 +159,24 @@ class MainWindow(QMainWindow):
         print(f'Button "{btnName}" pressed!')
     # ///////////////////////////////////////////////////////////////
 
+    #点击
     def HomeBtnClick(self):
         print("你敲了一下木鱼")
         self.score = self.score+1
         widgets.label_score.setText(f'你的功德值：{self.score}')
+        # posAnime = QPropertyAnimation(widgets.ed_scoreplus,'pos')
+        # posAnime.setDuration(1000)
+        # posAnime.setStartValue(QPoint(360,160))
+        # posAnime.setEndValue(QPoint(360,360))
+        widgets.ed_scoreplus.setText('功德+1')
+        self.ClickAnime = QPropertyAnimation(widgets.ed_scoreplus, b'geometry')
+        self.ClickAnime.setDuration(500)
+        self.ClickAnime.setStartValue(QRect(750,100,500,200))
+        self.ClickAnime.setEndValue(QRect(750,100,500,0))
+        self.ClickAnime.setLoopCount(1)
+        self.ClickAnime.start()
+        
+
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
