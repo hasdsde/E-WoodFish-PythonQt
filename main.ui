@@ -1991,7 +1991,7 @@ font: 9pt &quot;Microsoft YaHei UI&quot;;</string>
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>4</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -2010,6 +2010,16 @@ background-repeat: no-repeat;
                          </property>
                          <property name="text">
                           <string>功德值：999</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item alignment="Qt::AlignRight">
+                        <widget class="QLabel" name="ed_scoreplus">
+                         <property name="styleSheet">
+                          <string notr="true">font-family:'Microsoft YaHei UI'; font-size:15pt</string>
+                         </property>
+                         <property name="text">
+                          <string>功德+1</string>
                          </property>
                         </widget>
                        </item>
@@ -2458,7 +2468,7 @@ background-repeat: no-repeat;</string>
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>274</width>
+                                 <width>398</width>
                                  <height>218</height>
                                 </rect>
                                </property>

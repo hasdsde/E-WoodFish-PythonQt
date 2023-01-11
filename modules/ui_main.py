@@ -13,7 +13,6 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from . resources_rc import *
 
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -1119,6 +1118,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_22.addWidget(self.label_score)
 
+        self.ed_scoreplus = QLabel(self.home_page)
+        self.ed_scoreplus.setObjectName(u"ed_scoreplus")
+        self.ed_scoreplus.setStyleSheet(u"font-family:'Microsoft YaHei UI'; font-size:15pt")
+
+        self.verticalLayout_22.addWidget(self.ed_scoreplus, 0, Qt.AlignRight)
+
         self.widget = QWidget(self.home_page)
         self.widget.setObjectName(u"widget")
         sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
@@ -1329,7 +1334,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 274, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 398, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -2057,7 +2062,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2100,6 +2105,7 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
         self.label_score.setText(QCoreApplication.translate("MainWindow", u"\u529f\u5fb7\u503c\uff1a999", None))
+        self.ed_scoreplus.setText(QCoreApplication.translate("MainWindow", u"\u529f\u5fb7+1", None))
         self.btn_click.setText(QCoreApplication.translate("MainWindow", u"\u70b9\u51fb", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.lineEdit.setText("")

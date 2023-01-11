@@ -57,24 +57,24 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
 
-        # SET UI DEFINITIONS
+        # UI基础功能
         # ///////////////////////////////////////////////////////////////
         UIFunctions.uiDefinitions(self)
 
-        # QTableWidget PARAMETERS
+        # 表格参数
         # ///////////////////////////////////////////////////////////////
         widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         # 点击按钮
         # ///////////////////////////////////////////////////////////////
 
-        # 左侧菜单
+        # 绑定点击事件
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_tools.clicked.connect(self.buttonClick)
         widgets.btn_rank.clicked.connect(self.buttonClick)
         widgets.btn_widgets.clicked.connect(self.buttonClick)
 
-        # 设置
+        #侧栏
         def openCloseLeftBox():
             UIFunctions.toggleLeftBox(self, True)
 
@@ -91,7 +91,7 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         self.show()
 
-        # SET CUSTOM THEME
+        #自定义主题
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
         themeFile = "themes\py_dracula_light.qss"
@@ -104,12 +104,12 @@ class MainWindow(QMainWindow):
             # SET HACKS
             AppFunctions.setThemeHack(self)
 
-        # SET HOME PAGE AND SELECT MENU
+        # 设置主页
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home_page)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
-    # BUTTONS CLICK
+    # 点击事件
     # Post here your functions for clicked buttons
     # ///////////////////////////////////////////////////////////////
     def buttonClick(self):
@@ -148,7 +148,7 @@ class MainWindow(QMainWindow):
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
-    # MOUSE CLICK EVENTS
+    # MOUSE CLICK EVENTS 鼠标点击事件
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
@@ -165,4 +165,4 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
