@@ -114,7 +114,7 @@ class MainWindow(QMainWindow):
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
         widgets.ed_scoreplus.setText('')
 
-        #初始化数据
+        
         #本地模式
         if not os.path.exists('data.json'):
             localData = {'userName':'本地用户','score':0}
@@ -127,8 +127,12 @@ class MainWindow(QMainWindow):
             self.score = userData['score']
             userDataFile.close()
         widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
-
+        #初始化数据
         widgets.ed_scoreplus.setText('')
+        widgets.label_score_2.setText(f'用户：{self.username}  功德值：{self.score}')
+        widgets.label_3.setText(f'用户：{self.username}')
+        #初始化道具
+        
 
 
     #左侧菜单栏
