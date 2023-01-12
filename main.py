@@ -192,10 +192,10 @@ class MainWindow(QMainWindow):
             resp = sp.json()
             self.score = resp['data']['score']
             self.username = resp['data']['username']
-            widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
-            widgets.label_score_2.setText(f'用户：{self.username}  功德值：{self.score}')
-            widgets.label_3.setText(f'用户：{self.username}  功德值：{self.score}')
             print("你敲了一下赛博木鱼")
+        widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
+        widgets.label_score_2.setText(f'用户：{self.username}  功德值：{self.score}')
+        widgets.label_3.setText(f'用户：{self.username}  功德值：{self.score}')
         #点击动画
         widgets.ed_scoreplus.setText('功德+1')
         self.ClickAnime = QPropertyAnimation(widgets.ed_scoreplus, b'geometry')
@@ -210,7 +210,10 @@ class MainWindow(QMainWindow):
         userName = widgets.et_username.text()
         password = widgets.et_password.text()
         params = {'username':userName,'password':password}
-        sp =  requests.post("http://localhost:8000/user/log",json=params)
+        try:
+            sp =  requests.post("http://localhost:8000/user/log",json=params)
+        except requests.exceptions.ConnectionError:
+            QMessageBox.warning(self,'警告',f"网络连接失败，请检查网络设置",QMessageBox.Yes,QMessageBox.Yes)
         resp = sp.json()
         if resp['code']==200:
             QMessageBox.information(self, '登录', '登录成功', QMessageBox.Yes, QMessageBox.Yes)
@@ -226,7 +229,10 @@ class MainWindow(QMainWindow):
         userName = widgets.et_username.text()
         password = widgets.et_password.text()
         params ={'username':userName,'password':password}
-        sp =  requests.post("http://localhost:8000/user/reg",json=params)
+        try:
+            sp =  requests.post("http://localhost:8000/user/reg",json=params)
+        except requests.exceptions.ConnectionError:
+            QMessageBox.warning(self,'警告',f"网络连接失败，请检查网络设置",QMessageBox.Yes,QMessageBox.Yes)
         resp = sp.json()
         if resp['code']==200:
             QMessageBox.information(self, '注册', '注册成功', QMessageBox.Yes, QMessageBox.Yes)
