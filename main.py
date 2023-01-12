@@ -40,6 +40,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.score = 0
+        self.username = '本地用户' #默认就是本地用户
         global widgets
         widgets = self.ui
 
@@ -119,14 +120,13 @@ class MainWindow(QMainWindow):
             localData = {'userName':'本地用户','score':0}
             with open('data.json', mode='w', encoding='utf-8') as f:
                 json.dump(localData,f)
-            print("文件已创建")
             f.close()
         with open('data.json','r+') as userDataFile:
             userData = json.load(fp=userDataFile)
             self.userName = userData['userName']
             self.score = userData['score']
             userDataFile.close()
-        widgets.label_score.setText(f'功德值：{self.score}')
+        widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
 
         widgets.ed_scoreplus.setText('')
 
@@ -165,8 +165,17 @@ class MainWindow(QMainWindow):
     #点击木鱼
     def HomeBtnClick(self):
         print("你敲了一下木鱼")
-        self.score = self.score+1
-        widgets.label_score.setText(f'功德值：{self.score}')
+        widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
+        if self.username == '本地用户':
+            print('本地用户执行操作')
+            self.score = self.score+1
+        else:
+            sp = requests.get('http://localhost:8000/logs/swear',{'username':self.username,'score':1})
+            resp = sp.json()
+            self.score = resp['data']['score']
+            self.username = resp['data']['username']
+            widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
+        #点击动画
         widgets.ed_scoreplus.setText('功德+1')
         self.ClickAnime = QPropertyAnimation(widgets.ed_scoreplus, b'geometry')
         self.ClickAnime.setDuration(300)
@@ -174,32 +183,32 @@ class MainWindow(QMainWindow):
         self.ClickAnime.setEndValue(QRect(750,100,500,0))
         self.ClickAnime.setLoopCount(1)
         self.ClickAnime.start()
-    
-    #用户注册
+
+    #用户登录
     def UserLogin(self):
-        print('用户点击登录')
         userName = widgets.et_username.text()
         password = widgets.et_password.text()
         params = {'username':userName,'password':password}
-        resp =  requests.post("http://localhost:8000/user/log",json=params)
+        sp =  requests.post("http://localhost:8000/user/log",json=params)
+        resp = sp.json()
         if resp['code']==200:
             QMessageBox.information(self, '登录', '登录成功', QMessageBox.Yes, QMessageBox.Yes)
-            self.username = userName
+            self.username = resp['data']['username']
+            self.score = resp['data']['score']
         else:
-            QMessageBox.warning(self,'警告',f"错误代码:{resp['code']} 信息：{resp['msg']}",QMessageBox.Yes,QMessageBox.Yes)
-        print(resp.text)
+            QMessageBox.warning(self,'警告',f"信息：{resp['msg']}  错误代码:{resp['code']}",QMessageBox.Yes,QMessageBox.Yes)
+        widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
+    #用户注册
     def UserRegister(self):
-        print('用户点击登录')
         userName = widgets.et_username.text()
         password = widgets.et_password.text()
         params ={'username':userName,'password':password}
         sp =  requests.post("http://localhost:8000/user/reg",json=params)
         resp = sp.json()
-        print(resp)
         if resp['code']==200:
             QMessageBox.information(self, '注册', '注册成功', QMessageBox.Yes, QMessageBox.Yes)
         else:
-            QMessageBox.warning(self,'警告',f"错误代码:{resp['code']} 信息：{resp['msg']}",QMessageBox.Yes,QMessageBox.Yes)
+            QMessageBox.warning(self,'警告',f"信息：{resp['msg']}  错误代码:{resp['code']}",QMessageBox.Yes,QMessageBox.Yes)
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
