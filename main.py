@@ -77,6 +77,7 @@ class MainWindow(QMainWindow):
         widgets.btn_login.clicked.connect(self.UserLogin)
         widgets.btn_register.clicked.connect(self.UserRegister)
         widgets.pushButton.clicked.connect(self.ReflashTop)
+        widgets.btn_item1.clicked.connect(lambda:self.CostItem(1,100))
 
 
         # ///////////////////////////////////////////////////////////////
@@ -134,7 +135,12 @@ class MainWindow(QMainWindow):
         widgets.label_score_2.setText(f'用户：{self.username}  功德值：{self.score}')
         widgets.label_3.setText(f'用户：{self.username}  功德值：{self.score}')
         #初始化道具
-
+        widgets.item1_name.setText('佛的笑')
+        widgets.item2_name.setText('韩的笑')
+        widgets.item3_name.setText('扇宝的笑')
+        widgets.item1_desc.setText('扣1佛祖陪你笑 花费 100')
+        widgets.item2_desc.setText('扣1韩明陪你笑 花费 200')
+        widgets.item3_desc.setText('扣1扇宝陪你笑 花费 300')
         #初始化排行榜
         try:
             resp = requests.get('http://localhost:8000/user/top').json()
@@ -254,6 +260,24 @@ class MainWindow(QMainWindow):
                 widgets.top_table.setItem(index,2,item3)
         except requests.exceptions.ConnectionError:
             QMessageBox.warning(self,'警告',f"网络连接失败，请检查网络设置",QMessageBox.Yes,QMessageBox.Yes)
+    #买道具
+    def CostItem(self,itemId:int,cost:int,):
+        if self.score>cost:
+            if self.username=='本地用户':
+                self.score = self.score - cost
+                QMessageBox.information(self, '提示', '消费成功，注意查收', QMessageBox.Yes, QMessageBox.Yes)
+            else:
+                resp = requests.get('http://localhost:8000/cost/one',{'username':self.username,'cost':cost,'itemid':itemId,'palt':1}).json()
+                if resp['code']==200:
+                    QMessageBox.information(self, '提示', '消费成功，注意查收', QMessageBox.Yes, QMessageBox.Yes)
+                    self.score = self.score - cost
+                else:
+                    QMessageBox.warning(self,'警告',f"{resp['msg']}",QMessageBox.Yes,QMessageBox.Yes)
+        else:
+            QMessageBox.warning(self,'警告',f"功德不足",QMessageBox.Yes,QMessageBox.Yes)
+        widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
+        widgets.label_score_2.setText(f'用户：{self.username}  功德值：{self.score}')
+        widgets.label_3.setText(f'用户：{self.username}  功德值：{self.score}')
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
