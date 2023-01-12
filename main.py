@@ -132,8 +132,21 @@ class MainWindow(QMainWindow):
         widgets.label_score_2.setText(f'用户：{self.username}  功德值：{self.score}')
         widgets.label_3.setText(f'用户：{self.username}')
         #初始化道具
-        
 
+        #初始化排行榜
+        widgets.top_table.setItem(0,0,QTableWidgetItem('罗翔'))
+        resp = requests.get('http://localhost:8000/user/top').json()
+        print(resp['data'][2]['score'])
+        for index,r in enumerate(resp['data']):
+            item1 = QTableWidgetItem(resp['data'][index]['username'])
+            item1.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
+            widgets.top_table.setItem(index,0,item1)
+            item2 = QTableWidgetItem(str(resp['data'][index]['score']))
+            item2.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
+            widgets.top_table.setItem(index,1,item2)   
+            item3 = QTableWidgetItem(resp['data'][index]['createTime'][0:10])
+            item3.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
+            widgets.top_table.setItem(index,2,item3)
 
     #左侧菜单栏
     def buttonClick(self):
@@ -168,10 +181,9 @@ class MainWindow(QMainWindow):
 
     #点击木鱼
     def HomeBtnClick(self):
-        print("你敲了一下木鱼")
         widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
         if self.username == '本地用户':
-            print('本地用户执行操作')
+            print("你敲了一下本地木鱼")
             self.score = self.score+1
         else:
             sp = requests.get('http://localhost:8000/logs/swear',{'username':self.username,'score':1})
@@ -179,6 +191,7 @@ class MainWindow(QMainWindow):
             self.score = resp['data']['score']
             self.username = resp['data']['username']
             widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
+            print("你敲了一下赛博木鱼")
         #点击动画
         widgets.ed_scoreplus.setText('功德+1')
         self.ClickAnime = QPropertyAnimation(widgets.ed_scoreplus, b'geometry')
@@ -233,10 +246,11 @@ class MainWindow(QMainWindow):
     #         print('Mouse click: RIGHT CLICK')
     #重写退出事件
     def closeEvent(self, event):
-        dict = {'userName':self.userName,'score':self.score}
-        with open('data.json', mode='w', encoding='utf-8') as dictF:
-            json.dump(dict,dictF)
-        print('退出软件，数据已保存')
+        if self.username == '本地用户':
+            dict = {'userName':self.userName,'score':self.score}
+            with open('data.json', mode='w', encoding='utf-8') as dictF:
+                json.dump(dict,dictF)
+            print('退出软件，数据已保存')
 
 
 if __name__ == "__main__":
