@@ -18,12 +18,13 @@ import json
 import sys
 import os
 import platform
+import threading
 import requests
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from modules import *
 from widgets import *
-
+from playsound import playsound
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
 # SET AS GLOBAL WIDGETS
@@ -78,6 +79,8 @@ class MainWindow(QMainWindow):
         widgets.btn_register.clicked.connect(self.UserRegister)
         widgets.pushButton.clicked.connect(self.ReflashTop)
         widgets.btn_item1.clicked.connect(lambda:self.CostItem(1,100))
+        widgets.btn_item2.clicked.connect(lambda:self.CostItem(2,200))
+        widgets.btn_item3.clicked.connect(lambda:self.CostItem(3,10))
 
 
         # ///////////////////////////////////////////////////////////////
@@ -140,7 +143,7 @@ class MainWindow(QMainWindow):
         widgets.item3_name.setText('扇宝的笑')
         widgets.item1_desc.setText('扣1佛祖陪你笑 花费 100')
         widgets.item2_desc.setText('扣1韩明陪你笑 花费 200')
-        widgets.item3_desc.setText('扣1扇宝陪你笑 花费 300')
+        widgets.item3_desc.setText('扣1扇宝陪你笑 花费 10')
         #初始化排行榜
         try:
             resp = requests.get('http://localhost:8000/user/top').json()
@@ -266,11 +269,15 @@ class MainWindow(QMainWindow):
             if self.username=='本地用户':
                 self.score = self.score - cost
                 QMessageBox.information(self, '提示', '消费成功，注意查收', QMessageBox.Yes, QMessageBox.Yes)
+                if itemId==3:
+                        playsound('./music/sb.mp3')
             else:
                 resp = requests.get('http://localhost:8000/cost/one',{'username':self.username,'cost':cost,'itemid':itemId,'palt':1}).json()
                 if resp['code']==200:
-                    QMessageBox.information(self, '提示', '消费成功，注意查收', QMessageBox.Yes, QMessageBox.Yes)
+                    QMessageBox.information(self, '提示', '购买成功，注意查收', QMessageBox.Yes, QMessageBox.Yes)
                     self.score = self.score - cost
+                    if itemId==3:
+                        playsound('./music/sb.mp3')
                 else:
                     QMessageBox.warning(self,'警告',f"{resp['msg']}",QMessageBox.Yes,QMessageBox.Yes)
         else:
@@ -278,6 +285,7 @@ class MainWindow(QMainWindow):
         widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
         widgets.label_score_2.setText(f'用户：{self.username}  功德值：{self.score}')
         widgets.label_3.setText(f'用户：{self.username}  功德值：{self.score}')
+        QMessageBox.information(self, '提示', '消费完成', QMessageBox.Yes, QMessageBox.Yes)
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
