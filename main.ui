@@ -2084,6 +2084,78 @@ background-repeat: no-repeat;</string>
                         </widget>
                        </item>
                        <item>
+                        <widget class="QFrame" name="horizontalFrame">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>25</width>
+                           <height>25</height>
+                          </size>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_11">
+                          <item>
+                           <spacer name="horizontalSpacer_9">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>450</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="pushButton">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                              <horstretch>1</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>12</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>16777211</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(52, 59, 72);font-family:'Microsoft YaHei UI'; font-size:10pt</string>
+                            </property>
+                            <property name="text">
+                             <string>刷新</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <spacer name="horizontalSpacer_10">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>450</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
                         <layout class="QHBoxLayout" name="horizontalLayout_10">
                          <item>
                           <spacer name="horizontalSpacer_3">
@@ -2138,6 +2210,9 @@ background-repeat: no-repeat;</string>
                            <property name="gridStyle">
                             <enum>Qt::NoPen</enum>
                            </property>
+                           <attribute name="horizontalHeaderDefaultSectionSize">
+                            <number>120</number>
+                           </attribute>
                            <row>
                             <property name="text">
                              <string>1</string>
@@ -2291,17 +2366,17 @@ background-repeat: no-repeat;</string>
                            </column>
                            <item row="0" column="0">
                             <property name="text">
-                             <string>田所浩二</string>
+                             <string/>
                             </property>
                            </item>
                            <item row="0" column="1">
                             <property name="text">
-                             <string>114514</string>
+                             <string/>
                             </property>
                            </item>
                            <item row="0" column="2">
                             <property name="text">
-                             <string>1919810</string>
+                             <string/>
                             </property>
                            </item>
                            <item row="1" column="0">

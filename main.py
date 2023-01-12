@@ -76,6 +76,8 @@ class MainWindow(QMainWindow):
         widgets.btn_click.clicked.connect(self.HomeBtnClick)
         widgets.btn_login.clicked.connect(self.UserLogin)
         widgets.btn_register.clicked.connect(self.UserRegister)
+        widgets.pushButton.clicked.connect(self.ReflashTop)
+
 
         # ///////////////////////////////////////////////////////////////
         #侧栏
@@ -130,23 +132,24 @@ class MainWindow(QMainWindow):
         #初始化数据
         widgets.ed_scoreplus.setText('')
         widgets.label_score_2.setText(f'用户：{self.username}  功德值：{self.score}')
-        widgets.label_3.setText(f'用户：{self.username}')
+        widgets.label_3.setText(f'用户：{self.username}  功德值：{self.score}')
         #初始化道具
 
         #初始化排行榜
-        widgets.top_table.setItem(0,0,QTableWidgetItem('罗翔'))
-        resp = requests.get('http://localhost:8000/user/top').json()
-        print(resp['data'][2]['score'])
-        for index,r in enumerate(resp['data']):
-            item1 = QTableWidgetItem(resp['data'][index]['username'])
-            item1.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
-            widgets.top_table.setItem(index,0,item1)
-            item2 = QTableWidgetItem(str(resp['data'][index]['score']))
-            item2.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
-            widgets.top_table.setItem(index,1,item2)   
-            item3 = QTableWidgetItem(resp['data'][index]['createTime'][0:10])
-            item3.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
-            widgets.top_table.setItem(index,2,item3)
+        try:
+            resp = requests.get('http://localhost:8000/user/top').json()
+            for index,r in enumerate(resp['data']):
+                item1 = QTableWidgetItem(resp['data'][index]['username'])
+                item1.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
+                widgets.top_table.setItem(index,0,item1)
+                item2 = QTableWidgetItem(str(resp['data'][index]['score']))
+                item2.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
+                widgets.top_table.setItem(index,1,item2)   
+                item3 = QTableWidgetItem(resp['data'][index]['createTime'][0:10])
+                item3.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
+                widgets.top_table.setItem(index,2,item3)
+        except requests.exceptions.ConnectionError:
+            QMessageBox.warning(self,'警告',f"网络连接失败，请检查网络设置",QMessageBox.Yes,QMessageBox.Yes)
 
     #左侧菜单栏
     def buttonClick(self):
@@ -181,7 +184,6 @@ class MainWindow(QMainWindow):
 
     #点击木鱼
     def HomeBtnClick(self):
-        widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
         if self.username == '本地用户':
             print("你敲了一下本地木鱼")
             self.score = self.score+1
@@ -191,6 +193,8 @@ class MainWindow(QMainWindow):
             self.score = resp['data']['score']
             self.username = resp['data']['username']
             widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
+            widgets.label_score_2.setText(f'用户：{self.username}  功德值：{self.score}')
+            widgets.label_3.setText(f'用户：{self.username}  功德值：{self.score}')
             print("你敲了一下赛博木鱼")
         #点击动画
         widgets.ed_scoreplus.setText('功德+1')
@@ -215,6 +219,8 @@ class MainWindow(QMainWindow):
         else:
             QMessageBox.warning(self,'警告',f"信息：{resp['msg']}  错误代码:{resp['code']}",QMessageBox.Yes,QMessageBox.Yes)
         widgets.label_score.setText(f'用户：{self.username}  功德值：{self.score}')
+        widgets.label_score_2.setText(f'用户：{self.username}  功德值：{self.score}')
+        widgets.label_3.setText(f'用户：{self.username}  功德值：{self.score}')
     #用户注册
     def UserRegister(self):
         userName = widgets.et_username.text()
@@ -226,7 +232,22 @@ class MainWindow(QMainWindow):
             QMessageBox.information(self, '注册', '注册成功', QMessageBox.Yes, QMessageBox.Yes)
         else:
             QMessageBox.warning(self,'警告',f"信息：{resp['msg']}  错误代码:{resp['code']}",QMessageBox.Yes,QMessageBox.Yes)
-
+    #刷新排行榜
+    def ReflashTop(self):
+        try:
+            resp = requests.get('http://localhost:8000/user/top').json()
+            for index,r in enumerate(resp['data']):
+                item1 = QTableWidgetItem(resp['data'][index]['username'])
+                item1.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
+                widgets.top_table.setItem(index,0,item1)
+                item2 = QTableWidgetItem(str(resp['data'][index]['score']))
+                item2.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
+                widgets.top_table.setItem(index,1,item2)   
+                item3 = QTableWidgetItem(resp['data'][index]['createTime'][0:10])
+                item3.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
+                widgets.top_table.setItem(index,2,item3)
+        except requests.exceptions.ConnectionError:
+            QMessageBox.warning(self,'警告',f"网络连接失败，请检查网络设置",QMessageBox.Yes,QMessageBox.Yes)
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
