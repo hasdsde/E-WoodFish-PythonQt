@@ -146,7 +146,7 @@ class MainWindow(QMainWindow):
         widgets.item3_desc.setText('扣1扇宝陪你笑 花费 10')
         #初始化排行榜
         try:
-            resp = requests.get('http://localhost:8000/user/top').json()
+            resp = requests.get('http://hasdsd.cn:8000/user/top').json()
             for index,r in enumerate(resp['data']):
                 item1 = QTableWidgetItem(resp['data'][index]['username'])
                 item1.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
@@ -197,7 +197,7 @@ class MainWindow(QMainWindow):
             print("你敲了一下本地木鱼")
             self.score = self.score+1
         else:
-            sp = requests.get('http://localhost:8000/logs/swear',{'username':self.username,'score':1})
+            sp = requests.get('http://hasdsd.cn:8000/logs/swear',{'username':self.username,'score':1})
             resp = sp.json()
             self.score = resp['data']['score']
             self.username = resp['data']['username']
@@ -220,7 +220,7 @@ class MainWindow(QMainWindow):
         password = widgets.et_password.text()
         params = {'username':userName,'password':password}
         try:
-            sp =  requests.post("http://localhost:8000/user/log",json=params)
+            sp =  requests.post("http://hasdsd.cn:8000/user/log",json=params)
         except requests.exceptions.ConnectionError:
             QMessageBox.warning(self,'警告',f"网络连接失败，请检查网络设置",QMessageBox.Yes,QMessageBox.Yes)
         resp = sp.json()
@@ -239,7 +239,7 @@ class MainWindow(QMainWindow):
         password = widgets.et_password.text()
         params ={'username':userName,'password':password}
         try:
-            sp =  requests.post("http://localhost:8000/user/reg",json=params)
+            sp =  requests.post("http://hasdsd.cn:8000/user/reg",json=params)
         except requests.exceptions.ConnectionError:
             QMessageBox.warning(self,'警告',f"网络连接失败，请检查网络设置",QMessageBox.Yes,QMessageBox.Yes)
         resp = sp.json()
@@ -250,7 +250,7 @@ class MainWindow(QMainWindow):
     #刷新排行榜
     def ReflashTop(self):
         try:
-            resp = requests.get('http://localhost:8000/user/top').json()
+            resp = requests.get('http://hasdsd.cn:8000/user/top').json()
             for index,r in enumerate(resp['data']):
                 item1 = QTableWidgetItem(resp['data'][index]['username'])
                 item1.setTextAlignment(Qt.AlignHCenter| Qt.AlignVCenter)
@@ -272,7 +272,7 @@ class MainWindow(QMainWindow):
                 if itemId==3:
                         playsound('./music/sb.mp3')
             else:
-                resp = requests.get('http://localhost:8000/cost/one',{'username':self.username,'cost':cost,'itemid':itemId,'palt':1}).json()
+                resp = requests.get('http://hasdsd.cn:8000/cost/one',{'username':self.username,'cost':cost,'itemid':itemId,'palt':1}).json()
                 if resp['code']==200:
                     QMessageBox.information(self, '提示', '购买成功，注意查收', QMessageBox.Yes, QMessageBox.Yes)
                     self.score = self.score - cost
